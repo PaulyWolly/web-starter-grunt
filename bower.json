@@ -8,10 +8,7 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "node_modules"
   ],
   "dependencies": {
     "backbone": "~1.1.2",
@@ -19,6 +16,7 @@
     "bootstrap": "~3.1.1",
     "jquery": "~2.1.0",
     "marionette": "~1.7.4",
-    "rivets": "~0.6.8"
+    "rivets": "~0.6.8",
+    "Modernizr": "git@github.com:Modernizr/Modernizr.git#~2.8.3"
   }
 }

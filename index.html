@@ -1,34 +1,46 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-GB"> <!--<![endif]-->
   <head>
     <title></title>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/backbone/backbone.js"></script>
-    <script src="bower_components/backbone.wreqr/lib/backbone.wreqr.js"></script>
-    <script src="bower_components/backbone.babysitter/lib/backbone.babysitter.js"></script>
-    <script src="bower_components/marionette/lib/backbone.marionette.js"></script>
-    <script src="bower_components/rivets/dist/rivets.js"></script>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="app/assets/images/favicons/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="app/assets/images/favicons/144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="app/assets/images/favicons/114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="app/assets/images/favicons/72x72.png" />
+    <link rel="apple-touch-icon-precomposed" href="app/assets/images/favicons/57x57.png" />
+    <link rel="stylesheet" href="app/assets/stylesheets/main.css" />
+    <!-- Libs -->
+    <script src="vendor/assets/bower_components/Modernizr/modernizr.js"></script>
+    <script src="vendor/assets/bower_components/jquery/dist/jquery.js"></script>
+    <script src="vendor/assets/bower_components/underscore/underscore.js"></script>
+    <script src="vendor/assets/bower_components/backbone/backbone.js"></script>
+    <script src="vendor/assets/bower_components/backbone.wreqr/lib/backbone.wreqr.js"></script>
+    <script src="vendor/assets/bower_components/backbone.babysitter/lib/backbone.babysitter.js"></script>
+    <script src="vendor/assets/bower_components/marionette/lib/backbone.marionette.js"></script>
+    <script src="vendor/assets/bower_components/rivets/dist/rivets.js"></script>
+    <script src="vendor/assets/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- App -->
     <script src="app/assets/javascripts/backbone/config.js"></script>
     <script src="app/assets/javascripts/backbone/app.js"></script>
-
+    <!-- Entities -->
     <script src="app/assets/javascripts/backbone/entities/header.js"></script>
-
+    <!-- Layout -->
     <script src="app/assets/javascripts/backbone/apps/layout/layout_app.js"></script>
     <script src="app/assets/javascripts/backbone/apps/layout/show/show_controller.js"></script>
     <script src="app/assets/javascripts/backbone/apps/layout/show/show_views.js"></script>
-
+    <!-- Header -->
     <script src="app/assets/javascripts/backbone/apps/header/header_app.js"></script>
     <script src="app/assets/javascripts/backbone/apps/header/list/list_controller.js"></script>
     <script src="app/assets/javascripts/backbone/apps/header/list/list_views.js"></script>
-
+    <!-- Footer -->
     <script src="app/assets/javascripts/backbone/apps/footer/footer_app.js"></script>
     <script src="app/assets/javascripts/backbone/apps/footer/show/show_controller.js"></script>
     <script src="app/assets/javascripts/backbone/apps/footer/show/show_views.js"></script>
-
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
-    <link rel="stylesheet" href="app/assets/stylesheets/main.css" />
   </head>
   <body>
 
