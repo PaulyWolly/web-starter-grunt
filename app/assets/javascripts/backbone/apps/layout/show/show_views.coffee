@@ -10,3 +10,5 @@
       headerRegion: '#header__region'
       mainRegion: '#main__region'
       footerRegion: '#footer__region'
+
+  Show

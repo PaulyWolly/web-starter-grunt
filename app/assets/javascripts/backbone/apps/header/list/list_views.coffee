@@ -9,3 +9,5 @@
     template: '#header__template'
     itemView: List.Header
     itemViewContainer: 'ul'
+
+  List

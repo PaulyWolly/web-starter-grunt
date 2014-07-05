@@ -10,3 +10,5 @@
     getHeaderView: (links) ->
       new List.Headers
         collection: links
+
+  List

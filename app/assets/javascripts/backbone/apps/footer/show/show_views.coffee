@@ -2,3 +2,5 @@
 
   class Show.Footer extends Marionette.ItemView
     template: '#footer__template'
+
+  Show

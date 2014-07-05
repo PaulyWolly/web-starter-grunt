@@ -18,7 +18,7 @@
       return Header;
 
     })(Marionette.ItemView);
-    return List.Headers = (function(_super) {
+    List.Headers = (function(_super) {
       __extends(Headers, _super);
 
       function Headers() {
@@ -34,6 +34,7 @@
       return Headers;
 
     })(Marionette.CompositeView);
+    return List;
   });
 
 }).call(this);

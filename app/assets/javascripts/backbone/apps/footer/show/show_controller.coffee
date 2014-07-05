@@ -8,3 +8,5 @@
 
     getFooterView: ->
       new Show.Footer()
+
+  Show

@@ -2,7 +2,7 @@
 (function() {
   this.App = (function(Backbone, Marionette) {
     var App;
-    App = new Marionette.Application;
+    App = new Marionette.Application();
     App.on("initialize:before", function(options) {
       return App.module('InitializeApp').start({
         options: options

@@ -12,3 +12,5 @@
 
     getLayoutRegionView: ->
       new Show.LayoutRegion()
+
+  Show

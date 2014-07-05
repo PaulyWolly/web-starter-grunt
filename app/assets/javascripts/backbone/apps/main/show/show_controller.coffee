@@ -8,3 +8,5 @@
 
     getMainView: ->
       new Show.Main()
+
+  Show

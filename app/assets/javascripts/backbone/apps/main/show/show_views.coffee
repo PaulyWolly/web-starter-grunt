@@ -2,3 +2,5 @@
 
   class Show.Main extends Marionette.CompositeView
     template: '#main__template'
+
+  Show

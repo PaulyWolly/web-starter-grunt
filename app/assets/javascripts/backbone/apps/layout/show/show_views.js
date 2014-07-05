@@ -16,7 +16,7 @@
       return LayoutRegion;
 
     })(Marionette.Region);
-    return Show.Layout = (function(_super) {
+    Show.Layout = (function(_super) {
       __extends(Layout, _super);
 
       function Layout() {
@@ -34,6 +34,7 @@
       return Layout;
 
     })(Marionette.Layout);
+    return Show;
   });
 
 }).call(this);

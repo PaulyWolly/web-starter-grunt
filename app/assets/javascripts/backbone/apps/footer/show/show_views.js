@@ -4,7 +4,7 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   this.App.module("FooterApp.Show", function(Show, App, Backbone, Marionette, $, _) {
-    return Show.Footer = (function(_super) {
+    Show.Footer = (function(_super) {
       __extends(Footer, _super);
 
       function Footer() {
@@ -16,6 +16,7 @@
       return Footer;
 
     })(Marionette.ItemView);
+    return Show;
   });
 
 }).call(this);

@@ -1,6 +1,6 @@
 @App = do (Backbone, Marionette) ->
 
-  App = new Marionette.Application
+  App = new Marionette.Application()
 
   App.on "initialize:before", (options) ->
     App.module('InitializeApp').start

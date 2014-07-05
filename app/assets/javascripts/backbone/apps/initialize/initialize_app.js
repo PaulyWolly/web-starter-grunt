@@ -4,12 +4,11 @@
     var API;
     this.startWithParent = false;
     API = {
-      initialize: function(options) {}
-    };
-    return InitializeApp.on("start", function(options) {
-      if (options == null) {
-        options = {};
+      initialize: function(options) {
+        return console.log('Constructor Init!');
       }
+    };
+    return InitializeApp.on('start', function(options) {
       return API.initialize(options);
     });
   });

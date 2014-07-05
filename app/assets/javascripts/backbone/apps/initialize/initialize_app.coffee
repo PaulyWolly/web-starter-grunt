@@ -3,6 +3,7 @@
 
   API =
     initialize: (options)->
+      console.log 'Constructor Init!'
 
-  InitializeApp.on "start", (options = {}) ->
+  InitializeApp.on 'start', (options) ->
     API.initialize options
