@@ -3,9 +3,15 @@
   this.App = (function(Backbone, Marionette) {
     var App;
     App = new Marionette.Application;
+    App.on("initialize:before", function(options) {
+      return App.module('InitializeApp').start({
+        options: options
+      });
+    });
     App.addInitializer(function() {
       App.module('LayoutApp').start();
       App.module('HeaderApp').start();
+      App.module('MainApp').start();
       return App.module('FooterApp').start();
     });
     App.on('initialize:after', function() {

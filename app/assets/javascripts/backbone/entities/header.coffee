@@ -8,9 +8,18 @@
   API =
     getHeaders: ->
       new Backbone.Collection [
-        {name: 'User'}
-        {name: 'Leads'}
-        {name: 'Appointments'}
+        {
+          name: 'Users'
+          link: 'users'
+        }
+        {
+          name: 'Leads'
+          link: 'leads'
+        }
+        {
+          name: 'Appointments'
+          link: 'appointments'
+        }
       ]
 
   App.reqres.setHandler 'header:entities', ->

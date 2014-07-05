@@ -4,15 +4,18 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en-GB"> <!--<![endif]-->
   <head>
-    <title></title>
+    <!-- Meta -->
+    <title>Marionette Web Application</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width" />
+    <!-- Favicons -->
     <link rel="shortcut icon" href="app/assets/images/favicons/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="app/assets/images/favicons/144x144.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="app/assets/images/favicons/114x114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="app/assets/images/favicons/72x72.png" />
     <link rel="apple-touch-icon-precomposed" href="app/assets/images/favicons/57x57.png" />
+    <!-- Main App CSS-->
     <link rel="stylesheet" href="app/assets/stylesheets/main.css" />
     <!-- Libs -->
     <script src="vendor/assets/bower_components/Modernizr/modernizr.js"></script>
@@ -27,36 +30,46 @@
     <!-- App -->
     <script src="app/assets/javascripts/backbone/config.js"></script>
     <script src="app/assets/javascripts/backbone/app.js"></script>
+    <!-- API -->
+    <!-- Helpers -->
+    <!-- Utilities -->
     <!-- Entities -->
     <script src="app/assets/javascripts/backbone/entities/header.js"></script>
-    <!-- Layout -->
+    <!-- Components -->
+    <!-- Initialize App -->
+    <script src="app/assets/javascripts/backbone/apps/initialize/initialize_app.js"></script>
+    <!-- Layout App -->
     <script src="app/assets/javascripts/backbone/apps/layout/layout_app.js"></script>
     <script src="app/assets/javascripts/backbone/apps/layout/show/show_controller.js"></script>
     <script src="app/assets/javascripts/backbone/apps/layout/show/show_views.js"></script>
-    <!-- Header -->
+    <!-- Header App -->
     <script src="app/assets/javascripts/backbone/apps/header/header_app.js"></script>
     <script src="app/assets/javascripts/backbone/apps/header/list/list_controller.js"></script>
     <script src="app/assets/javascripts/backbone/apps/header/list/list_views.js"></script>
-    <!-- Footer -->
+    <!-- Main App -->
+    <script src="app/assets/javascripts/backbone/apps/main/main_app.js"></script>
+    <script src="app/assets/javascripts/backbone/apps/main/show/show_controller.js"></script>
+    <script src="app/assets/javascripts/backbone/apps/main/show/show_views.js"></script>
+    <!-- Footer App -->
     <script src="app/assets/javascripts/backbone/apps/footer/footer_app.js"></script>
     <script src="app/assets/javascripts/backbone/apps/footer/show/show_controller.js"></script>
     <script src="app/assets/javascripts/backbone/apps/footer/show/show_views.js"></script>
   </head>
   <body>
 
-  <div id="layout__region">
+  <div id="layout__region"></div>
 
-  </div>
-
-  <script type="text/template" id="layout_template">
+  <script type="text/template" id="layout__template">
     <div id="header__region"></div>
+    <!-- /#header__region -->
     <div id="main__region"></div>
+    <!-- /#main__region -->
     <div id="footer__region"></div>
+    <!-- /#footer__region -->
   </script>
 
   <script type="text/template" id="header__template">
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -69,13 +82,13 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right"></ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
   </script>
 
   <script type="text/template" id="_header__template">
-    <a href="#contact"><%= name %></a>
+    <a href="#<%= link %>"><%= name %></a>
   </script>
 
   <script type="text/template" id="main__template">
@@ -83,15 +96,15 @@
       <div class="page-header">
         <h1>Sticky footer with fixed navbar</h1>
       </div>
-      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body > .container</code>.</p>
-      <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
     </div>
   </script>
 
   <script type="text/template" id="footer__template">
     <div class="footer">
       <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted">
+          Place sticky footer content here.
+        </p>
       </div>
     </div>
   </script>

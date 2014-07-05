@@ -31,11 +31,14 @@
       getHeaders: function() {
         return new Backbone.Collection([
           {
-            name: 'User'
+            name: 'Users',
+            link: 'users'
           }, {
-            name: 'Leads'
+            name: 'Leads',
+            link: 'leads'
           }, {
-            name: 'Appointments'
+            name: 'Appointments',
+            link: 'appointments'
           }
         ]);
       }

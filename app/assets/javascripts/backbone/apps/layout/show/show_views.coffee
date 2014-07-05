@@ -4,7 +4,7 @@
     el: '#layout__region'
 
   class Show.Layout extends Marionette.Layout
-    template: '#layout_template'
+    template: '#layout__template'
 
     regions:
       headerRegion: '#header__region'

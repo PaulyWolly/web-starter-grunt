@@ -23,7 +23,7 @@
         return Layout.__super__.constructor.apply(this, arguments);
       }
 
-      Layout.prototype.template = '#layout_template';
+      Layout.prototype.template = '#layout__template';
 
       Layout.prototype.regions = {
         headerRegion: '#header__region',
