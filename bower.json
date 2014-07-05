@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "Marionette Web App",
   "version": "0.0.0",
   "homepage": "https://github.com/ABC-Solutions/backbone-marionette-application",
   "authors": [
@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "backbone": "~1.1.2",
-    "bootstrap-sass": "git@github.com:twbs/bootstrap-sass.git#~3.1.1+2",
+    "bootstrap-sass": "git@github.com:twbs/bootstrap-sass.git#~v3.2.0",
     "bootstrap": "~3.1.1",
     "jquery": "~2.1.0",
     "marionette": "~1.7.4",
