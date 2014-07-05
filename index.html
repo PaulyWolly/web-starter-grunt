@@ -9,28 +9,38 @@
     <script src="bower_components/backbone.babysitter/lib/backbone.babysitter.js"></script>
     <script src="bower_components/marionette/lib/backbone.marionette.js"></script>
     <script src="bower_components/rivets/dist/rivets.js"></script>
-    <script src="assets/javascript/backbone/config.js"></script>
-    <script src="assets/javascript/backbone/app.js"></script>
+    <script src="app/assets/javascripts/backbone/config.js"></script>
+    <script src="app/assets/javascripts/backbone/app.js"></script>
 
-    <script src="assets/javascript/backbone/entities/header.js"></script>
+    <script src="app/assets/javascripts/backbone/entities/header.js"></script>
 
-    <script src="assets/javascript/backbone/apps/header/header_app.js"></script>
-    <script src="assets/javascript/backbone/apps/header/list/list_controller.js"></script>
-    <script src="assets/javascript/backbone/apps/header/list/list_view.js"></script>
+    <script src="app/assets/javascripts/backbone/apps/layout/layout_app.js"></script>
+    <script src="app/assets/javascripts/backbone/apps/layout/show/show_controller.js"></script>
+    <script src="app/assets/javascripts/backbone/apps/layout/show/show_views.js"></script>
 
-    <script src="assets/javascript/backbone/apps/footer/footer_app.js"></script>
-    <script src="assets/javascript/backbone/apps/footer/show/show_controller.js"></script>
-    <script src="assets/javascript/backbone/apps/footer/show/show_views.js"></script>
+    <script src="app/assets/javascripts/backbone/apps/header/header_app.js"></script>
+    <script src="app/assets/javascripts/backbone/apps/header/list/list_controller.js"></script>
+    <script src="app/assets/javascripts/backbone/apps/header/list/list_views.js"></script>
+
+    <script src="app/assets/javascripts/backbone/apps/footer/footer_app.js"></script>
+    <script src="app/assets/javascripts/backbone/apps/footer/show/show_controller.js"></script>
+    <script src="app/assets/javascripts/backbone/apps/footer/show/show_views.js"></script>
 
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
-    <link rel="stylesheet" href="assets/stylesheet/main.css" />
+    <link rel="stylesheet" href="app/assets/stylesheets/main.css" />
   </head>
   <body>
 
-  <div id="header__region"></div>
-  <div id="main__region"></div>
-  <div id="footer__region"></div>
+  <div id="layout__region">
+
+  </div>
+
+  <script type="text/template" id="layout_template">
+    <div id="header__region"></div>
+    <div id="main__region"></div>
+    <div id="footer__region"></div>
+  </script>
 
   <script type="text/template" id="header__template">
     <!-- Fixed navbar -->
@@ -55,7 +65,6 @@
   <script type="text/template" id="_header__template">
     <a href="#contact"><%= name %></a>
   </script>
-
 
   <script type="text/template" id="main__template">
     <div class="container">
