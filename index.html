@@ -5,16 +5,18 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en-GB"> <!--<![endif]-->
   <head>
     <!-- Meta -->
+    <meta charset="utf-8" />
     <title>Marionette Web Application</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Favicons -->
     <link rel="shortcut icon" href="app/assets/images/favicons/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="app/assets/images/favicons/144x144.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="app/assets/images/favicons/114x114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="app/assets/images/favicons/72x72.png" />
-    <link rel="apple-touch-icon-precomposed" href="app/assets/images/favicons/57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="app/assets/images/favicons/57x57.png" />
     <!-- Main App CSS-->
     <link rel="stylesheet" href="app/assets/stylesheets/main.css" />
     <!-- Libs -->
@@ -57,63 +59,63 @@
   </head>
   <body>
 
-  <div id="layout__region"></div>
+    <div id="layout__region"></div>
 
-  <script type="text/template" id="layout__template">
-    <div id="header__region"></div>
-    <!-- /#header__region -->
-    <div id="main__region"></div>
-    <!-- /#main__region -->
-    <div id="footer__region"></div>
-    <!-- /#footer__region -->
-  </script>
+    <script type="text/template" id="layout__template">
+      <div id="header__region"></div>
+      <!-- /#header__region -->
+      <div id="main__region"></div>
+      <!-- /#main__region -->
+      <div id="footer__region"></div>
+      <!-- /#footer__region -->
+    </script>
 
-  <script type="text/template" id="header__template">
-    <div class="navbar navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
+    <script type="text/template" id="header__template">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right"></ul>
+          </div>
         </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right"></ul>
+      </div>
+    </script>
+
+    <script type="text/template" id="_header__template">
+      <a href="#<%= link %>"><%= name %></a>
+    </script>
+
+    <script type="text/template" id="main__template">
+      <div class="container">
+        <div class="page-header">
+          <h1>Sticky footer with fixed navbar</h1>
         </div>
       </div>
-    </div>
-  </script>
+    </script>
 
-  <script type="text/template" id="_header__template">
-    <a href="#<%= link %>"><%= name %></a>
-  </script>
-
-  <script type="text/template" id="main__template">
-    <div class="container">
-      <div class="page-header">
-        <h1>Sticky footer with fixed navbar</h1>
+    <script type="text/template" id="footer__template">
+      <div class="footer">
+        <div class="container">
+          <p class="text-muted">
+            Place sticky footer content here.
+          </p>
+        </div>
       </div>
-    </div>
-  </script>
+    </script>
 
-  <script type="text/template" id="footer__template">
-    <div class="footer">
-      <div class="container">
-        <p class="text-muted">
-          Place sticky footer content here.
-        </p>
-      </div>
-    </div>
-  </script>
-
-  <script type="application/javascript">
-    $(function(){
-      App.start();
-    })
-  </script>
+    <script type="application/javascript">
+      $(function(){
+        App.start();
+      })
+    </script>
 
   </body>
 </html>
