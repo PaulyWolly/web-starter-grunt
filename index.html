@@ -19,6 +19,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="app/assets/images/favicons/57x57.png" />
     <!-- Main App CSS-->
     <link rel="stylesheet" href="app/assets/stylesheets/main.css" />
+    <!-- development mode -->
     <!-- Libs -->
     <script src="vendor/assets/bower_components/Modernizr/modernizr.js"></script>
     <script src="vendor/assets/bower_components/jquery/dist/jquery.js"></script>
@@ -57,8 +58,12 @@
     <script src="app/assets/javascripts/backbone/apps/footer/footer_app.js"></script>
     <script src="app/assets/javascripts/backbone/apps/footer/show/show_controller.js"></script>
     <script src="app/assets/javascripts/backbone/apps/footer/show/show_views.js"></script>
-
+    <!-- production mode -->
     <!--<script src="app/assets/javascripts/main.min.js"></script>-->
+    <!--[if lt IE 9]>
+    <script src="vendor/assets/bower_components/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="vendor/assets/bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
 
