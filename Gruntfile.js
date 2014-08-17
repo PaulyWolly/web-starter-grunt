@@ -101,6 +101,17 @@ module.exports = function(grunt) {
         src: 'app/assets/javascripts/main.js',
         dest: 'app/assets/javascripts/main.min.js'
       }
+    },
+
+    cmq: {
+      options: {
+        log: false
+      },
+      your_target: {
+        files: {
+          'app/assets/stylesheets/': ['app/assets/stylesheets/main.min.css']
+        }
+      }
     }
 
   });
@@ -113,8 +124,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-combine-media-queries');
 
-  grunt.registerTask('compilecss', ['sass', 'autoprefixer', 'cssmin']);
+  grunt.registerTask('compilecss', ['sass', 'autoprefixer', 'cmq', 'cssmin']);
   grunt.registerTask('compilejs', ['concat', 'uglify']);
 //  grunt.registerTask('test', ['jshint']);
 
