@@ -116,8 +116,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('compilecss', ['sass', 'autoprefixer', 'cssmin']);
   grunt.registerTask('compilejs', ['concat', 'uglify']);
-  grunt.registerTask('test', ['jshint']);
+//  grunt.registerTask('test', ['jshint']);
 
-  grunt.registerTask('default', ['compilecss', 'compilejs', 'test']);
+  grunt.registerTask('default', ['compilecss', 'compilejs']);
 
 };

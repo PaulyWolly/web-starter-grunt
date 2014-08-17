@@ -17,6 +17,7 @@
     "jquery": "~2.1.0",
     "marionette": "~1.7.4",
     "rivets": "~0.6.8",
-    "Modernizr": "git@github.com:Modernizr/Modernizr.git#~2.8.3"
+    "Modernizr": "git@github.com:Modernizr/Modernizr.git#~2.8.3",
+    "jquery-placeholder": "https://github.com/mathiasbynens/jquery-placeholder.git#~2.0.8"
   }
 }
