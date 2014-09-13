@@ -1,5 +1,4 @@
 {
-  "name": "test",
   "devDependencies": {
     "bower": "~1.2.7",
     "coffee-script": "~1.7.1",
@@ -16,6 +15,7 @@
     "grunt-contrib-qunit": "~0.5.1",
     "grunt-autoprefixer": "~0.8.1",
     "grunt-contrib-cssmin": "~0.10.0",
-    "grunt-combine-media-queries": "~1.0.19"
+    "grunt-combine-media-queries": "~1.0.19",
+    "grunt-open": "~0.2.3"
   }
 }
