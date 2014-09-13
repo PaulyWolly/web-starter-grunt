@@ -17,6 +17,7 @@
     "grunt-contrib-cssmin": "~0.10.0",
     "grunt-combine-media-queries": "~1.0.19",
     "grunt-pixrem": "~0.1.2",
+    "grunt-contrib-imagemin": "~0.8.0",
     "grunt-open": "~0.2.3"
   }
 }

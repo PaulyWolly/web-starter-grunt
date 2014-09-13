@@ -158,6 +158,17 @@ module.exports = function(grunt) {
       }
     },
 
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.development %>/app/assets/images/',
+          src: ['**/*.{png,jpg,gif,svg}'],
+          dest: '<%= config.production %>/app/assets/images/'
+        }]
+      }
+    }
+
 
   });
 
@@ -207,8 +218,10 @@ module.exports = function(grunt) {
     'autoprefixer:production',
     'cssmin:production',
     'cmq:production',
-    'pixrem:production'
+    'pixrem:production',
     // javascripts
+    // images
+    'imagemin'
   ]);
 
 };
