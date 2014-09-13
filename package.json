@@ -16,6 +16,7 @@
     "grunt-autoprefixer": "~0.8.1",
     "grunt-contrib-cssmin": "~0.10.0",
     "grunt-combine-media-queries": "~1.0.19",
+    "grunt-pixrem": "~0.1.2",
     "grunt-open": "~0.2.3"
   }
 }

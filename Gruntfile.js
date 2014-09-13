@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['<%= config.development %>/app/assets/stylesheets/**/*.sass'],
-        tasks: ['sass:development', 'autoprefixer:development']
+        tasks: ['sass:development', 'autoprefixer:development', 'cssmin:development']
       },
       livereload: {
         files: [
@@ -110,31 +110,53 @@ module.exports = function(grunt) {
 
     // cssmin
     cssmin: {
+      development: {
+        expand: true,
+        cwd: '<%= config.development %>/app/assets/stylesheets/',
+        src: ['*.css', '!*.min.css'],
+        dest: '<%= config.development %>/app/assets/stylesheets/',
+        ext: '.css',
+        keepSpecialComments: true
+      },
       production: {
-        minify: {
-          expand: true,
-          cwd: '<%= config.development %>/app/assets/stylesheets/',
-          src: ['*.css', '!*.min.css'],
-          dest: '<%= config.production %>/app/assets/stylesheets/',
-          ext: '.min.css',
-          keepSpecialComments: false
-        }
+        expand: true,
+        cwd: '<%= config.development %>/app/assets/stylesheets/',
+        src: ['*.css', '!*.min.css'],
+        dest: '<%= config.production %>/app/assets/stylesheets/',
+        ext: '.css',
+        keepSpecialComments: false
       }
     },
 
     // cmq
     cmq: {
+      development: {
+        files: {
+          '<%= config.development %>/app/assets/stylesheets/': ['<%= config.development %>/app/assets/stylesheets/main.css']
+        }
+      },
       production: {
-        options: {
-          log: false
-        },
-        your_target: {
-          files: {
-            '<%= config.production %>/app/assets/stylesheets/': ['<%= config.production %>/app/assets/stylesheets/main.min.css']
-          }
+        files: {
+          '<%= config.production %>/app/assets/stylesheets/': ['<%= config.production %>/app/assets/stylesheets/main.css']
         }
       }
-    }
+    },
+
+    // pixrem
+    pixrem: {
+      options: {
+        rootvalue: '50%',
+        replace: false
+      },
+      development: {
+        src: '<%= config.development %>/app/assets/stylesheets/main.css',
+        dest: '<%= config.development %>/app/assets/stylesheets/main.css'
+      },
+      production: {
+        src: '<%= config.production %>/app/assets/stylesheets/main.css',
+        dest: '<%= config.production %>/app/assets/stylesheets/main.css'
+      }
+    },
 
 
   });
@@ -149,13 +171,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-combine-media-queries');
-  //  grunt.loadNpmTasks('grunt-contrib-concat');
-//  grunt.loadNpmTasks('grunt-contrib-uglify');
-
-//  grunt.loadNpmTasks('grunt-pixrem');
-//  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-pixrem');
 
   // javascripts
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  // images
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
 
   // runners
@@ -166,17 +189,26 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('development', [
+    // stylesheets
     'sass:development',
-    'autoprefixer:development'
+    'autoprefixer:development',
+    'cssmin:development',
+    'cmq:development',
+    'pixrem:development'
+    // javascripts
   ]);
 
   grunt.registerTask('production', [
+    // stylesheets
+    'sass:development',
+    'autoprefixer:development',
+    'cssmin:development',
     'sass:production',
     'autoprefixer:production',
     'cssmin:production',
-//    'cmq:production',
-//    'connect:production',
-//    'open:production'
+    'cmq:production',
+    'pixrem:production'
+    // javascripts
   ]);
 
 };
