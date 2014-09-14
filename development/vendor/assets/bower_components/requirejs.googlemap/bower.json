@@ -1,0 +1,15 @@
+{
+    "name": "GoogleMap"
+  , "version": "0.0.0"
+  , "main": "dist/GoogleMap.js"
+  , "dependencies": {
+      "requirejs": "2.1.*"
+    , "requirejs-domready": "2.0.*"
+    , "requirejs-plugins": "1.0.*"
+  }
+  , "ignore": [
+      "**/.*"
+    , "node_modules"
+    , "components"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "GoogleMap",
+  "main": "dist/GoogleMap.js",
+  "dependencies": {
+    "requirejs": "2.1.*",
+    "requirejs-domready": "2.0.*",
+    "requirejs-plugins": "1.0.*"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "homepage": "https://github.com/thomaswelton/requirejs-google-maps",
+  "_release": "555bf01bf6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "555bf01bf6ffd06954de332aef101e93d2c8380c"
+  },
+  "_source": "git@github.com:thomaswelton/requirejs-google-maps.git",
+  "_target": "*",
+  "_originalSource": "git@github.com:thomaswelton/requirejs-google-maps.git"
+}
