@@ -22,11 +22,11 @@ module.exports = function(grunt) {
     watch: {
       coffee: {
         files: ['<%= config.development %>/app/assets/javascripts_coffee/{,**/}*.coffee'],
-        tasks: ['coffee:covert_multiple']
+        tasks: ['coffee:development']
       },
       templates: {
         files: ['<%= config.development %>}/app/assets/**/templates/*.ejs'],
-        tasks: ['copy:templates', 'coffe:glob_to_multiple']
+        tasks: []
       },
       css: {
         files: ['<%= config.development %>/app/assets/stylesheets/**/*.sass'],
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 
     // coffeescript
     coffee: {
-      covert_multiple: {
+      development: {
         expand: true,
         flatten: false,
         bare: true,
@@ -91,6 +91,41 @@ module.exports = function(grunt) {
         cwd: './',
         src: ['<%= config.development %>/app/assets/javascripts_coffee/require_main.coffee'],
         dest: '<%= config.development %>/app/assets/javascripts/require_main.js'
+      }
+    },
+
+    // requirejs
+    requirejs: {
+      compile: {
+        options: {
+          mainConfigFile: "<%= config.development %>/app/assets/javascripts/require_main.js",
+          baseUrl: "<%= config.development %>/app/assets/javascripts/application",
+          name: "../require_main",
+          out: "<%= config.production %>/app/assets/javascripts/require_main.js",
+          findNestedDependencies: true,
+          inlineText: true,
+          optimize: "uglify",
+          wrap: true,
+          wrapShim: true,
+          preserveLicenseComments: false,
+          done: function(done, output) {
+            var duplicates = require('rjs-build-analysis').duplicates(output);
+            if (duplicates.length > 0) {
+              grunt.log.subhead('Duplicates found in requirejs build:');
+              grunt.log.warn(duplicates);
+              return done(new Error('r.js built duplicate modules, please check the excludes option.'));
+            }
+            done();
+          }
+        }
+      }
+    },
+
+    // uglify
+    uglify: {
+      production: {
+        src: '<%= config.production %>/app/assets/javascripts/require_main.js',
+        dest: '<%= config.production %>/app/assets/javascripts/require_main.js'
       }
     },
 
@@ -192,7 +227,6 @@ module.exports = function(grunt) {
       }
     }
 
-
   });
 
   // server
@@ -208,9 +242,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-pixrem');
 
   // javascripts
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   // images
   grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -229,8 +263,9 @@ module.exports = function(grunt) {
     'autoprefixer:development',
     'cssmin:development',
     'cmq:development',
-    'pixrem:development'
+    'pixrem:development',
     // javascripts
+    'coffee:development'
   ]);
 
   grunt.registerTask('production', [
@@ -244,6 +279,9 @@ module.exports = function(grunt) {
     'cmq:production',
     'pixrem:production',
     // javascripts
+    'coffee:development',
+    'requirejs',
+    'uglify:production',
     // images
     'imagemin'
   ]);

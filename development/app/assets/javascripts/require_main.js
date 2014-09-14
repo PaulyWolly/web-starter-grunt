@@ -1,7 +1,7 @@
 (function() {
   require.config({
     urlArgs: "bust=" + (new Date()).getTime(),
-    baseUrl: "app/assets/javascripts/backbone/",
+    baseUrl: "app/assets/javascripts/application/",
     paths: {
       jquery: "../../../../vendor/assets/bower_components/jquery/dist/jquery",
       underscore: "../../../../vendor/assets/bower_components/underscore/underscore",
@@ -12,7 +12,7 @@
       "backbone.relational": "../../../../vendor/assets/bower_components/backbone.relational/backbone-relational",
       "backbone.syphon": "../../../../vendor/assets/bower_components/backbone.syphon/lib/backbone.syphon",
       "backbone.babysitter": "../../../../vendor/assets/bower_components/backbone.babysitter/lib/backbone.babysitter",
-      marionette: "../../../../vendor/assets/bower_components/marionette/lib/backbone.marionette",
+      marionette: "../../../../vendor/assets/bower_components/backbone.marionette/lib/backbone.marionette",
       rivets: "../../../../vendor/assets/bower_components/rivets/dist/rivets",
       "text": "../../../../vendor/assets/bower_components/requirejs.text/text",
       "ejs": "../../../../vendor/assets/bower_components/requirejs.ejs/ejs",
@@ -150,8 +150,8 @@
     }
   });
 
-  require(["jquery.owl.carousel"], function(carousel) {
-    return console.log(carousel);
+  require(["app"], function(App) {
+    return App.start();
   });
 
 }).call(this);

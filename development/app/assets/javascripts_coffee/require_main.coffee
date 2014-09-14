@@ -2,7 +2,7 @@ require.config
 
   urlArgs: "bust=" +  (new Date()).getTime()
 
-  baseUrl: "app/assets/javascripts/backbone/"
+  baseUrl: "app/assets/javascripts/application/"
 
   paths:
     jquery:                   "../../../../vendor/assets/bower_components/jquery/dist/jquery"
@@ -14,7 +14,7 @@ require.config
     "backbone.relational":    "../../../../vendor/assets/bower_components/backbone.relational/backbone-relational"
     "backbone.syphon":        "../../../../vendor/assets/bower_components/backbone.syphon/lib/backbone.syphon"
     "backbone.babysitter":    "../../../../vendor/assets/bower_components/backbone.babysitter/lib/backbone.babysitter"
-    marionette:               "../../../../vendor/assets/bower_components/marionette/lib/backbone.marionette"
+    marionette:               "../../../../vendor/assets/bower_components/backbone.marionette/lib/backbone.marionette"
     rivets:                   "../../../../vendor/assets/bower_components/rivets/dist/rivets"
     "text":                   "../../../../vendor/assets/bower_components/requirejs.text/text"
     "ejs":                    "../../../../vendor/assets/bower_components/requirejs.ejs/ejs"
@@ -71,8 +71,5 @@ require.config
     "bootstrap/tooltip":      { deps: ["jquery"], exports: "$.fn.tooltip" }
     "bootstrap/transition":   { deps: ["jquery"], exports: "$.fn.transition" }
 
-#require ["js/app"], (App) ->
-#  App.start()
-
-require ["jquery.owl.carousel"], (carousel) ->
-  console.log carousel
+require ["app"], (App) ->
+  App.start()
