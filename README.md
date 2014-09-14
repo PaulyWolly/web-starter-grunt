@@ -80,3 +80,7 @@ Create production version:
 ```bash
 grunt production
 ```
+Live reload for Chrome:
+```http
+https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
+```
