@@ -6,23 +6,22 @@ html
   position: relative
   min-height: 100%
 
-.min-height
-  min-height: 100%
-  height: 100%
-
+.fluid
+  +m(height)
+    min-height: 100%
+    height: 100%
+  +m(width)
+    width: 100%
+  +m(fixed)
+    max-width: 1074px
 
 .free-space
   padding: 0
   margin: 0
 
-.fluid
-  width: 100%
-
-.fluid-fixed
-  max-width: 1074px
 
 /* ==========================================================================
- * tables
+ * tables based on divs
  *===========================================================================
 .table-table
   display: table

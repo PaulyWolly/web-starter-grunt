@@ -5,9 +5,11 @@
       this.startWithParent = false;
       API = {
         initialize: function(options) {
-          return require(["components/initialize/core/core_controller"], function() {
-            return InitializeApp.Core.Controller.start(options);
-          });
+          return require(["components/initialize/core/core_controller"], (function(_this) {
+            return function() {
+              return InitializeApp.Core.Controller.start(options);
+            };
+          })(this));
         }
       };
       return this.on("start", function(options) {

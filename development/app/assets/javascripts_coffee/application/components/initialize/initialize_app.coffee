@@ -10,8 +10,8 @@ define [
 
     API =
       initialize: (options) ->
-        require ["components/initialize/core/core_controller"], ->
-          InitializeApp.Core.Controller.start options
+        require ["components/initialize/core/core_controller"], =>
+          InitializeApp.Core.Controller.start(options)
 
-    @on "start", (options) ->
+    @.on "start", (options) ->
       API.initialize options
