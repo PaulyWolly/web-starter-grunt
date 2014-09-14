@@ -16,8 +16,7 @@
     App.on("before:start", function(options) {
       return require(["components/initialize/initialize_app"], (function(_this) {
         return function() {
-          App.module("InitializeApp").start(options);
-          return console.log('start');
+          return App.module("InitializeApp").start(options);
         };
       })(this));
     });

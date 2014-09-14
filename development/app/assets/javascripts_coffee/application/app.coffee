@@ -19,7 +19,6 @@ define [
   App.on "before:start", (options) ->
     require ["components/initialize/initialize_app"], () =>
       App.module("InitializeApp").start(options)
-      console.log 'start'
 
   App.addInitializer =>
 
