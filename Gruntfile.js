@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     watch: {
       coffee: {
         files: ['<%= config.development %>/app/assets/javascripts_coffee/{,**/}*.coffee'],
-        tasks: ['coffee:glob_to_multiple','coffee:amdConfig', 'shell:mocha-phantomjs']
+        tasks: ['coffee:covert_multiple']
       },
       templates: {
         files: ['<%= config.development %>}/app/assets/**/templates/*.ejs'],
@@ -69,6 +69,28 @@ module.exports = function(grunt) {
       production: {
         path: 'http://localhost:8000/<%= config.production %>/',
         app: 'Google Chrome'
+      }
+    },
+
+    // coffeescript
+    coffee: {
+      covert_multiple: {
+        expand: true,
+        flatten: false,
+        bare: true,
+        cwd: '<%= config.development %>/app/assets/javascripts_coffee/',
+        src: ['**/*.coffee', '*.coffee'],
+        dest: '<%= config.development %>/app/assets/javascripts/',
+        ext: '.js'
+      },
+      require_config: {
+        flatten: true,
+        options: {
+          bare: true
+        },
+        cwd: './',
+        src: ['<%= config.development %>/app/assets/javascripts_coffee/require_main.coffee'],
+        dest: '<%= config.development %>/app/assets/javascripts/require_main.js'
       }
     },
 
@@ -158,6 +180,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // imagemin
     imagemin: {
       dynamic: {
         files: [{
@@ -187,6 +210,7 @@ module.exports = function(grunt) {
   // javascripts
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-coffee');
 
   // images
   grunt.loadNpmTasks('grunt-contrib-imagemin');

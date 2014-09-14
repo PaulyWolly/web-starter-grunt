@@ -24,7 +24,6 @@
     "requirejs": "git@github.com:jrburke/requirejs.git#~2.1.15",
     "requirejs.text": "git@github.com:requirejs/text.git#~2.0.12",
     "requirejs.ejs": "git@github.com:visionmedia/ejs.git#~1.0.0",
-    "requirejs.cs": "git@github.com:requirejs/require-cs.git",
     "requirejs.domready": "git@github.com:requirejs/domReady.git",
     "requirejs.plugins": "git@github.com:millermedeiros/requirejs-plugins.git",
     "modernizr": "git@github.com:Modernizr/Modernizr.git#~2.8.3",
