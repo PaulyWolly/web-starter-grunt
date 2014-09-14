@@ -44,11 +44,11 @@
 4. HTML files
 
 #### The production versions stored:
-1. optimized version for css file:
+optimized version for css file:
 ```http
-/production/app/assets/stylesheets/main.js
+/production/app/assets/stylesheets/main.css
 ```
-2. optimized version for requirejs file:
+optimized version for requirejs file:
 ```http
 /production/app/assets/javascripts/require_main.js
 ```
