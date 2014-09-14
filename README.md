@@ -1,4 +1,4 @@
-# Marionette, Requirejs, Bower, Grunt SCAFFOLDING APP for SAP
+# Marionette, Requirejs, Bower, Grunt SCAFFOLDING for SPA
 
 #### Libs
 1. Marionette;
@@ -40,7 +40,7 @@
 #### Grunt watchers
 1. CoffeeScript
 2. SASS
-3. Templates
+3. EJS templates
 4. HTML files
 
 #### The production versions stored:

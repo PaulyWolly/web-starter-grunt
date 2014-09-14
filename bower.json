@@ -1,7 +1,18 @@
 {
-  "name": "Marionette + Requirejs + CoffeeScript + Grunt + SASS Base Web App",
-  "version": "0.0.5",
-  "homepage": "https://github.com/ABC-Solutions/backbone-marionette-application",
+  "name": "spa for geeks",
+  "description": "The scaffolding for SPA on Marionette, Requirejs, CoffeeScript, SASS.",
+  "version": "0.0.1",
+  "keywords": [
+    "spa",
+    "marionette",
+    "backbone",
+    "requirejs",
+    "scaffold",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "https://github.com/ABC-Solutions/scaffolding-backbone-marionette-requirejs-coffeescript-spa",
   "authors": [
     "Iuriy Budnikov <iuriy.budnikov@abcsolute.com>"
   ],
