@@ -20,6 +20,7 @@
     "grunt-open": "~0.2.3",
     "grunt-contrib-requirejs": "~0.4.4",
     "rjs-build-analysis": "0.0.3",
-    "grunt-svgmin": "~1.0.0"
+    "grunt-svgmin": "~1.0.0",
+    "grunt-csscomb": "~3.0.0"
   }
 }

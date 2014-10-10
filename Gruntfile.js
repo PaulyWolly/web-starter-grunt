@@ -147,6 +147,28 @@ module.exports = function(grunt) {
       }
     },
 
+    // csscomb
+    csscomb: {
+      development: {
+        dynamic_mappings: {
+          expand: true,
+          cwd: '<%= config.development %>/app/assets/stylesheets/',
+          src: ['*.css', '*.css'],
+          dest: '<%= config.development %>/app/assets/stylesheets/',
+          ext: '.css'
+        }
+      },
+      production: {
+        dynamic_mappings: {
+          expand: true,
+          cwd: '<%= config.production %>/app/assets/stylesheets/',
+          src: ['*.css', '*.css'],
+          dest: '<%= config.production %>/app/assets/stylesheets/',
+          ext: '.css'
+        }
+      }
+    },
+
     // autoprefixer
     autoprefixer: {
       development: {
@@ -177,7 +199,7 @@ module.exports = function(grunt) {
       },
       production: {
         expand: true,
-        cwd: '<%= config.development %>/app/assets/stylesheets/',
+        cwd: '<%= config.production %>/app/assets/stylesheets/',
         src: ['*.css', '!*.min.css'],
         dest: '<%= config.production %>/app/assets/stylesheets/',
         ext: '.css',
@@ -251,6 +273,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-csscomb');
   grunt.loadNpmTasks('grunt-combine-media-queries');
   grunt.loadNpmTasks('grunt-pixrem');
 
@@ -275,10 +298,12 @@ module.exports = function(grunt) {
   grunt.registerTask('development', [
     // stylesheets
     'sass:development',
-    'autoprefixer:development',
     'cssmin:development',
+    'csscomb:development',
+    'autoprefixer:development',
     'cmq:development',
     'pixrem:development',
+    'cssmin:development',
     // javascripts
     'coffee:development'
   ]);
@@ -286,13 +311,14 @@ module.exports = function(grunt) {
   grunt.registerTask('production', [
     // stylesheets
     'sass:development',
-    'autoprefixer:development',
     'cssmin:development',
     'sass:production',
-    'autoprefixer:production',
     'cssmin:production',
+    'csscomb:production',
+    'autoprefixer:production',
     'cmq:production',
     'pixrem:production',
+    'cssmin:production',
     // javascripts
     'coffee:development',
     'requirejs',
