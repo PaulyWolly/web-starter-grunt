@@ -41,6 +41,7 @@ require.config
     moment:                   pathBowerComponents + "moment/moment"
     bootstrap:                pathBowerComponents + "bootstrap-sass/assets/javascripts/bootstrap"
     device:                   pathBowerComponents + "device/lib/device"
+    platform:                 pathBowerComponents + "platform.js/platform"
     rem:                      pathComponents + "rem/rem"
 
   shim:
@@ -65,6 +66,7 @@ require.config
     moment:                   { exports: "moment" }
     rem:                      { deps: ["jquery"] }
     device:                   { exports: "device" }
+    platform:                 { exports: "platform" }
     "googlemap":              { deps: ["async"], exports: "GoogleMap" }
     bootstrap:                { deps: ["jquery"] }
     "bootstrap/affix":        { deps: ["jquery"], exports: "$.fn.affix" }
@@ -82,6 +84,7 @@ require.config
 
 require [
   "app"
+  "platform"
 ],
 (
   App

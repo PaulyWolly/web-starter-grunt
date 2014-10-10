@@ -42,6 +42,7 @@
       moment: pathBowerComponents + "moment/moment",
       bootstrap: pathBowerComponents + "bootstrap-sass/assets/javascripts/bootstrap",
       device: pathBowerComponents + "device/lib/device",
+      platform: pathBowerComponents + "platform.js/platform",
       rem: pathComponents + "rem/rem"
     },
     shim: {
@@ -110,6 +111,9 @@
       device: {
         exports: "device"
       },
+      platform: {
+        exports: "platform"
+      },
       "googlemap": {
         deps: ["async"],
         exports: "GoogleMap"
@@ -168,7 +172,7 @@
     }
   });
 
-  require(["app"], function(App) {
+  require(["app", "platform"], function(App) {
     return App.start();
   });
 

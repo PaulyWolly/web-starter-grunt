@@ -51,6 +51,7 @@
     "moment": "git@github.com:moment/moment.git#~2.8.2",
     "animate.css": "git@github.com:daneden/animate.css.git#~3.2.0",
     "device": "git@github.com:matthewhudson/device.js.git",
-    "sass-mediaqueries": "git@github.com:paranoida/sass-mediaqueries.git#~1.3.1"
+    "sass-mediaqueries": "git@github.com:paranoida/sass-mediaqueries.git#~1.3.1",
+    "platform.js": "git@github.com:bestiejs/platform.js.git#~1.2.0"
   }
 }
