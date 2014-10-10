@@ -32,10 +32,13 @@ require.config
     "jquery.scrolltop":       "../../../../vendor/assets/bower_components/jquery.lazyload/jquery.scrollstop"
     "jquery.placeholder":     "../../../../vendor/assets/bower_components/jquery.placeholder/jquery.placeholder"
     "jquery.owl.carousel":    "../../../../vendor/assets/bower_components/jquery.owl.carousel/dist/owl.carousel"
+    "jquery.cookie":          "../../../../vendor/assets/bower_components/jquery.cookie/jquery.cookie"
     wow:                      "../../../../vendor/assets/bower_components/wow/dist/wow"
     pace:                     "../../../../vendor/assets/bower_components/pace/pace"
     moment:                   "../../../../vendor/assets/bower_components/moment/moment"
     bootstrap:                "../../../../vendor/assets/bower_components/bootstrap-sass/assets/javascripts/bootstrap"
+    device:                   "../../../../vendor/assets/bower_components/device/lib/device"
+    rem:                      "../../../../vendor/assets/components/rem/rem"
 
   shim:
     jquery:                   { exports: "$" }
@@ -53,9 +56,12 @@ require.config
     "jquery.scrolltop":       { deps: ["jquery"] }
     "jquery.lazyload":        { deps: ["jquery", "jquery.scrolltop"] }
     "jquery.owl.carousel":    { deps: ["jquery"] }
+    "jquery.cookie":          { deps: ["jquery"] }
     wow:                      { exports: "WOW" }
     pace:                     { exports: "pace" }
     moment:                   { exports: "moment" }
+    rem:                      { deps: ["jquery"] }
+    device:                   { exports: "device" }
     "googlemap":              { deps: ["async"], exports: "GoogleMap" }
     bootstrap:                { deps: ["jquery"] }
     "bootstrap/affix":        { deps: ["jquery"], exports: "$.fn.affix" }

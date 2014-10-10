@@ -225,7 +225,19 @@ module.exports = function(grunt) {
           dest: '<%= config.production %>/app/assets/images/'
         }]
       }
-    }
+    },
+
+    // svgmin
+    svgmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.development %>/app/assets/images/',
+          src: '{,*/}*.svg',
+          dest: '<%= config.production %>/app/assets/images/'
+        }]
+      }
+    },
 
   });
 
@@ -248,6 +260,8 @@ module.exports = function(grunt) {
 
   // images
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-svgmin');
+
 
 
   // runners
@@ -283,7 +297,8 @@ module.exports = function(grunt) {
     'requirejs',
     'uglify:production',
     // images
-    'imagemin'
+    'imagemin',
+    'svgmin'
   ]);
 
 };

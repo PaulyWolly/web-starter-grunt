@@ -19,6 +19,7 @@
     "grunt-contrib-imagemin": "~0.8.0",
     "grunt-open": "~0.2.3",
     "grunt-contrib-requirejs": "~0.4.4",
-    "rjs-build-analysis": "0.0.3"
+    "rjs-build-analysis": "0.0.3",
+    "grunt-svgmin": "~1.0.0"
   }
 }

@@ -30,10 +30,13 @@
       "jquery.scrolltop": "../../../../vendor/assets/bower_components/jquery.lazyload/jquery.scrollstop",
       "jquery.placeholder": "../../../../vendor/assets/bower_components/jquery.placeholder/jquery.placeholder",
       "jquery.owl.carousel": "../../../../vendor/assets/bower_components/jquery.owl.carousel/dist/owl.carousel",
+      "jquery.cookie": "../../../../vendor/assets/bower_components/jquery.cookie/jquery.cookie",
       wow: "../../../../vendor/assets/bower_components/wow/dist/wow",
       pace: "../../../../vendor/assets/bower_components/pace/pace",
       moment: "../../../../vendor/assets/bower_components/moment/moment",
-      bootstrap: "../../../../vendor/assets/bower_components/bootstrap-sass/assets/javascripts/bootstrap"
+      bootstrap: "../../../../vendor/assets/bower_components/bootstrap-sass/assets/javascripts/bootstrap",
+      device: "../../../../vendor/assets/bower_components/device/lib/device",
+      rem: "../../../../vendor/assets/components/rem/rem"
     },
     shim: {
       jquery: {
@@ -83,6 +86,9 @@
       "jquery.owl.carousel": {
         deps: ["jquery"]
       },
+      "jquery.cookie": {
+        deps: ["jquery"]
+      },
       wow: {
         exports: "WOW"
       },
@@ -91,6 +97,12 @@
       },
       moment: {
         exports: "moment"
+      },
+      rem: {
+        deps: ["jquery"]
+      },
+      device: {
+        exports: "device"
       },
       "googlemap": {
         deps: ["async"],
