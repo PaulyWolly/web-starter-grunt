@@ -261,13 +261,29 @@ module.exports = function(grunt) {
       }
     },
 
+    // deploy
+    secret: grunt.file.readJSON('secret.json'),
+    sshexec: {
+      deploy: {
+        command: [
+          '<%= secret.staging.path %>',
+          'git reset --hard',
+          'git pull origin master'
+        ].join(' && '),
+        options: {
+          host: '<%= secret.staging.host %>',
+          username: '<%= secret.staging.username %>',
+          password: '<%= secret.staging.password %>'
+        }
+      }
+    }
+
   });
 
   // server
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
-
 
   // stylesheets
   grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -286,7 +302,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-svgmin');
 
-
+  // deployment
+  grunt.loadNpmTasks('grunt-ssh');
 
   // runners
   grunt.registerTask('default', [
@@ -326,6 +343,10 @@ module.exports = function(grunt) {
     // images
     'imagemin',
     'svgmin'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'sshexec:deploy'
   ]);
 
 };

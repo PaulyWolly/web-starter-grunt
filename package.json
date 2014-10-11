@@ -21,6 +21,7 @@
     "grunt-contrib-requirejs": "~0.4.4",
     "rjs-build-analysis": "0.0.3",
     "grunt-svgmin": "~1.0.0",
-    "grunt-csscomb": "~3.0.0"
+    "grunt-csscomb": "~3.0.0",
+    "grunt-ssh": "~0.12.0"
   }
 }
