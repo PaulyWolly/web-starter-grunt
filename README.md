@@ -43,6 +43,14 @@
 3. EJS templates
 4. HTML files
 
+
+#### Using BEM in SASS
+```sass
+.block
+   &__element
+      &--modifier
+```
+
 #### The production versions stored:
 optimized version for css file:
 ```http
@@ -85,9 +93,27 @@ Live reload for Chrome:
 https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
 ```
 
-#### Using BEM in SASS
-```sass
-.block
-   &__element
-      &--modifier
+Deploy on server (possible to change list commands in Gruntfile.js ):
+```bash
+grunt deploy
 ```
+
+```json
+{
+  "staging": {
+    "host": "192.168.0.1",
+    "username": "user",
+    "password": "pass",
+    "port": "22",
+    "path": "cd /path/to/dir/"
+  },
+  "production": {
+    "host": "192.168.0.1",
+    "username": "user",
+    "password": "pass",
+    "port": "22",
+    "path": "cd /path/to/dir/"
+  }
+}
+```
+
