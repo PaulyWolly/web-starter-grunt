@@ -166,7 +166,7 @@
     }
   });
 
-  require(["app", "platform"], function(App) {
+  require(["app"], function(App) {
     return App.start();
   });
 

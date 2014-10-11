@@ -81,7 +81,6 @@ require.config
 
 require [
   "app"
-  "platform"
 ],
 (
   App
