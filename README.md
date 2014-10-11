@@ -1,4 +1,4 @@
-# Marionette, Requirejs, Bower, Grunt SCAFFOLDING for SPA
+# Marionette, Requirejs, Bower, Grunt, SASS, BEM SCAFFOLDING for SPA
 
 #### Libs
 1. Marionette;
@@ -83,4 +83,11 @@ grunt production
 Live reload for Chrome:
 ```http
 https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
+```
+
+#### Using BEM in SASS
+```sass
+.block
+   &__element
+      &--modifier
 ```
