@@ -40,6 +40,10 @@ require.config
     device:                   "../../../../vendor/assets/bower_components/device/lib/device"
     platform:                 "../../../../vendor/assets/bower_components/platform.js/platform"
     rem:                      "../../../../vendor/assets/components/rem/rem"
+    TimelineMax:              "../../../../vendor/assets/bower_components/gsap/src/uncompressed/TimelineMax"
+    TweenMax:                 "../../../../vendor/assets/bower_components/gsap/src/uncompressed/TweenMax"
+    TweenLite:                "../../../../vendor/assets/bower_components/gsap/src/uncompressed/TweenLite"
+    expo:                     "../../../../vendor/assets/bower_components/gsap/src/uncompressed/easing/EasePack"
 
   shim:
     jquery:                   { exports: "$" }
@@ -78,6 +82,8 @@ require.config
     "bootstrap/tab":          { deps: ["jquery"], exports: "$.fn.tab"        }
     "bootstrap/tooltip":      { deps: ["jquery"], exports: "$.fn.tooltip" }
     "bootstrap/transition":   { deps: ["jquery"], exports: "$.fn.transition" }
+    expo:                     { exports: "Expo" }
+    TimelineMax:              { deps: ["TweenLite"] }
 
 require [
   "app"
