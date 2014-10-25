@@ -42,7 +42,8 @@
       TweenMax: "../../../../vendor/assets/bower_components/gsap/src/uncompressed/TweenMax",
       TweenLite: "../../../../vendor/assets/bower_components/gsap/src/uncompressed/TweenLite",
       expo: "../../../../vendor/assets/bower_components/gsap/src/uncompressed/easing/EasePack",
-      skrollr: "../../../../vendor/assets/bower_components/skrollr/src/skrollr"
+      skrollr: "../../../../vendor/assets/bower_components/skrollr/src/skrollr",
+      hammer: "../../../../vendor/assets/bower_components/hammerjs/hammer"
     },
     shim: {
       jquery: {
@@ -183,6 +184,9 @@
       },
       skrollr: {
         exports: "skrollr"
+      },
+      hammer: {
+        exports: "Hammer"
       }
     }
   });

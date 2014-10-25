@@ -63,6 +63,25 @@ define [
         require ["jquery.placeholder"], =>
           @options.$placeholderForms.placeholder()
 
+    ###### test events
+    events: () ->
+      @options.$window.on "click", -> console.log 'click'
+      @options.$window.on "resize", -> console.log 'resize'
+      @options.$window.on "orientationchange", -> console.log 'orientationchange'
+      @options.$window.on "scroll", -> console.log 'scroll'
+      @options.$window.on "mousewheel", -> console.log 'mousewheel'
+      @options.$window.on "touchstart", -> console.log 'touchstart'
+      @options.$window.on "touchmove", -> console.log 'touchmove'
+      @options.$window.on "touchend", -> console.log 'touchend'
+
+      require ["hammer"], (Hammer) ->
+        myElement = document.getElementsByTagName("html")[0]
+        mc = new Hammer(myElement)
+        mc.get('pan').set({ direction: Hammer.DIRECTION_ALL })
+        mc.on "panleft panright panup pandown tap press swipeleft swiperight", (ev) ->
+          console.log ev.type
+
   project = new Project()
   project.setBrowserVersion()
   project.setBrowserPlaceholder()
+#  project.events()

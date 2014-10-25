@@ -107,6 +107,44 @@
         }
       };
 
+      Project.prototype.events = function() {
+        this.options.$window.on("click", function() {
+          return console.log('click');
+        });
+        this.options.$window.on("resize", function() {
+          return console.log('resize');
+        });
+        this.options.$window.on("orientationchange", function() {
+          return console.log('orientationchange');
+        });
+        this.options.$window.on("scroll", function() {
+          return console.log('scroll');
+        });
+        this.options.$window.on("mousewheel", function() {
+          return console.log('mousewheel');
+        });
+        this.options.$window.on("touchstart", function() {
+          return console.log('touchstart');
+        });
+        this.options.$window.on("touchmove", function() {
+          return console.log('touchmove');
+        });
+        this.options.$window.on("touchend", function() {
+          return console.log('touchend');
+        });
+        return require(["hammer"], function(Hammer) {
+          var mc, myElement;
+          myElement = document.getElementsByTagName("html")[0];
+          mc = new Hammer(myElement);
+          mc.get('pan').set({
+            direction: Hammer.DIRECTION_ALL
+          });
+          return mc.on("panleft panright panup pandown tap press swipeleft swiperight", function(ev) {
+            return console.log(ev.type);
+          });
+        });
+      };
+
       return Project;
 
     })();
