@@ -1,4 +1,4 @@
-# Marionette, Requirejs, Bower, Grunt, SASS, BEM SCAFFOLDING for SPA
+# Marionette, Requirejs, Bower, Grunt, SASS, BEM, REM SCAFFOLDING for SPA
 
 #### Libs
 1. Marionette;
@@ -34,8 +34,26 @@
 15. Pace;
 16. WOW;
 17. EJS;
-18. Animate CSS.
+18. Animate CSS;
+19. Platform;
+20. Tween Sock;
+21. Skrollr;
 
+#### Grunt
+1. watch
+2. connect
+3. coffee
+4. requirejs
+5. uglify
+6. sass
+7. csscomb
+8. autoprefixer
+9. cssmin
+10. cmq
+11. pixrem
+12. imagemin
+13. svgmin
+14. sshexec
 
 #### Grunt watchers
 1. CoffeeScript

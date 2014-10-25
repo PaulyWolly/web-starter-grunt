@@ -1,7 +1,7 @@
 {
   "name": "spa for geeks",
   "description": "The scaffolding for SPA on Marionette, Requirejs, CoffeeScript, SASS.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "keywords": [
     "spa",
     "marionette",
@@ -53,6 +53,7 @@
     "device": "git@github.com:matthewhudson/device.js.git",
     "sass-mediaqueries": "git@github.com:paranoida/sass-mediaqueries.git#~1.3.1",
     "platform.js": "git@github.com:bestiejs/platform.js.git#~1.2.0",
-    "gsap": "git@github.com:greensock/GreenSock-JS.git#~1.13.2"
+    "gsap": "git@github.com:greensock/GreenSock-JS.git#~1.13.2",
+    "skrollr": "git@github.com:Prinzhorn/skrollr.git#~0.6.27"
   }
 }

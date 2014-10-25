@@ -37,7 +37,12 @@
       bootstrap: "../../../../vendor/assets/bower_components/bootstrap-sass/assets/javascripts/bootstrap",
       device: "../../../../vendor/assets/bower_components/device/lib/device",
       platform: "../../../../vendor/assets/bower_components/platform.js/platform",
-      rem: "../../../../vendor/assets/components/rem/rem"
+      rem: "../../../../vendor/assets/components/rem/rem",
+      TimelineMax: "../../../../vendor/assets/bower_components/gsap/src/uncompressed/TimelineMax",
+      TweenMax: "../../../../vendor/assets/bower_components/gsap/src/uncompressed/TweenMax",
+      TweenLite: "../../../../vendor/assets/bower_components/gsap/src/uncompressed/TweenLite",
+      expo: "../../../../vendor/assets/bower_components/gsap/src/uncompressed/easing/EasePack",
+      skrollr: "../../../../vendor/assets/bower_components/skrollr/src/skrollr"
     },
     shim: {
       jquery: {
@@ -76,19 +81,23 @@
         exports: "ejs"
       },
       "jquery.placeholder": {
-        deps: ["jquery"]
+        deps: ["jquery"],
+        exports: "$.fn.placeholder"
       },
       "jquery.scrolltop": {
-        deps: ["jquery"]
+        deps: ["jquery"],
+        exports: "$.fn.scrolltop"
       },
       "jquery.lazyload": {
         deps: ["jquery", "jquery.scrolltop"]
       },
       "jquery.owl.carousel": {
-        deps: ["jquery"]
+        deps: ["jquery"],
+        exports: "$.fn.owlCarousel"
       },
       "jquery.cookie": {
-        deps: ["jquery"]
+        deps: ["jquery"],
+        exports: "$.fn.cookie"
       },
       wow: {
         exports: "WOW"
@@ -111,6 +120,9 @@
       "googlemap": {
         deps: ["async"],
         exports: "GoogleMap"
+      },
+      modernizr: {
+        exports: "Modernizr"
       },
       bootstrap: {
         deps: ["jquery"]
@@ -162,11 +174,20 @@
       "bootstrap/transition": {
         deps: ["jquery"],
         exports: "$.fn.transition"
+      },
+      expo: {
+        exports: "Expo"
+      },
+      TimelineMax: {
+        deps: ["TweenLite"]
+      },
+      skrollr: {
+        exports: "skrollr"
       }
     }
   });
 
-  require(["app"], function(App) {
+  require(["app", "script"], function(App) {
     return App.start();
   });
 

@@ -172,18 +172,10 @@ module.exports = function(grunt) {
     // autoprefixer
     autoprefixer: {
       development: {
-        options: {
-        },
-        no_dest: {
-          src: '<%= config.development %>/app/assets/stylesheets/main.css'
-        }
+        src: '<%= config.development %>/app/assets/stylesheets/main.css'
       },
       production: {
-        options: {
-        },
-        no_dest: {
-          src: '<%= config.production %>/app/assets/stylesheets/main.css'
-        }
+        src: '<%= config.production %>/app/assets/stylesheets/main.css'
       }
     },
 
@@ -262,7 +254,7 @@ module.exports = function(grunt) {
     },
 
     // deploy
-    secret: grunt.file.readJSON('secret.json'),
+//    secret: grunt.file.readJSON('secret.json'),
     sshexec: {
       deploy: {
         command: [

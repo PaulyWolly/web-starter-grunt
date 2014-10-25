@@ -44,6 +44,7 @@ require.config
     TweenMax:                 "../../../../vendor/assets/bower_components/gsap/src/uncompressed/TweenMax"
     TweenLite:                "../../../../vendor/assets/bower_components/gsap/src/uncompressed/TweenLite"
     expo:                     "../../../../vendor/assets/bower_components/gsap/src/uncompressed/easing/EasePack"
+    skrollr:                  "../../../../vendor/assets/bower_components/skrollr/src/skrollr"
 
   shim:
     jquery:                   { exports: "$" }
@@ -57,11 +58,11 @@ require.config
     "backbone.syphon":        { deps: ["backbone"] }
     marionette:               { deps: ["backbone"], exports: "Marionette" }
     "ejs":                    { exports: "ejs" }
-    "jquery.placeholder":     { deps: ["jquery"] }
-    "jquery.scrolltop":       { deps: ["jquery"] }
+    "jquery.placeholder":     { deps: ["jquery"], exports: "$.fn.placeholder" }
+    "jquery.scrolltop":       { deps: ["jquery"], exports: "$.fn.scrolltop" }
     "jquery.lazyload":        { deps: ["jquery", "jquery.scrolltop"] }
-    "jquery.owl.carousel":    { deps: ["jquery"] }
-    "jquery.cookie":          { deps: ["jquery"] }
+    "jquery.owl.carousel":    { deps: ["jquery"], exports: "$.fn.owlCarousel" }
+    "jquery.cookie":          { deps: ["jquery"], exports: "$.fn.cookie" }
     wow:                      { exports: "WOW" }
     pace:                     { exports: "pace" }
     moment:                   { exports: "moment" }
@@ -69,6 +70,7 @@ require.config
     device:                   { exports: "device" }
     platform:                 { exports: "platform" }
     "googlemap":              { deps: ["async"], exports: "GoogleMap" }
+    modernizr:                { exports: "Modernizr" }
     bootstrap:                { deps: ["jquery"] }
     "bootstrap/affix":        { deps: ["jquery"], exports: "$.fn.affix" }
     "bootstrap/alert":        { deps: ["jquery"], exports: "$.fn.alert" }
@@ -84,9 +86,11 @@ require.config
     "bootstrap/transition":   { deps: ["jquery"], exports: "$.fn.transition" }
     expo:                     { exports: "Expo" }
     TimelineMax:              { deps: ["TweenLite"] }
+    skrollr:                  { exports: "skrollr" }
 
 require [
   "app"
+  "script"
 ],
 (
   App
