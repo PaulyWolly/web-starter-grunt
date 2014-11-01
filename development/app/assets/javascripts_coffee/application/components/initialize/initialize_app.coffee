@@ -1,8 +1,4 @@
-define [
-  "app"
-], (
-  App
-) ->
+define ["path/marionette_app"], (App) ->
 
   App.module "InitializeApp", (InitializeApp, App, Backbone, Marionette, $, _) ->
 
@@ -10,7 +6,7 @@ define [
 
     API =
       initialize: (options) ->
-        require ["components/initialize/core/core_controller"], =>
+        require ["path/components/initialize/core/core_controller"], =>
           InitializeApp.Core.Controller.start(options)
 
     @.on "start", (options) ->

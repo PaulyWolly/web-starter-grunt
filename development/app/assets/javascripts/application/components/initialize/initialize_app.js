@@ -1,11 +1,11 @@
 (function() {
-  define(["app"], function(App) {
+  define(["path/marionette_app"], function(App) {
     return App.module("InitializeApp", function(InitializeApp, App, Backbone, Marionette, $, _) {
       var API;
       this.startWithParent = false;
       API = {
         initialize: function(options) {
-          return require(["components/initialize/core/core_controller"], (function(_this) {
+          return require(["path/components/initialize/core/core_controller"], (function(_this) {
             return function() {
               return InitializeApp.Core.Controller.start(options);
             };

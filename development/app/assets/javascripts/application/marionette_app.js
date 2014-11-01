@@ -14,7 +14,7 @@
       mainRegion: '#layout-region'
     });
     App.on("before:start", function(options) {
-      return require(["components/initialize/initialize_app"], (function(_this) {
+      return require(["path/components/initialize/initialize_app"], (function(_this) {
         return function() {
           return App.module("InitializeApp").start(options);
         };

@@ -1,8 +1,4 @@
-define [
-  "marionette"
-], (
-  Marionette
-) ->
+define ["marionette"], (Marionette) ->
 
   App = new Marionette.Application()
 
@@ -19,7 +15,7 @@ define [
     mainRegion: '#layout-region'
 
   App.on "before:start", (options) ->
-    require ["components/initialize/initialize_app"], =>
+    require ["path/components/initialize/initialize_app"], =>
       App.module("InitializeApp").start(options)
 
   App.addInitializer =>
