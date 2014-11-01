@@ -313,7 +313,33 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: ["<%= config.production %>"]
+    clean: ["<%= config.production %>"],
+
+    // validation
+    'html-validation': {
+      options: {
+        reset: true,
+        stoponerror: true,
+        relaxerror: []
+      },
+      files: {
+        src: ['<%= config.development %>/*.html']
+      }
+    },
+
+    'css-validation': {
+      options: {
+        reset: true,
+        stoponerror: true,
+        relaxerror: [],
+        profile: 'css3', // possible profiles are: none, css1, css2, css21, css3, svg, svgbasic, svgtiny, mobile, atsc-tv, tv
+        medium: 'all', // possible media are: all, aural, braille, embossed, handheld, print, projection, screen, tty, tv, presentation
+        warnings: '2' // possible warnings are: 2 (all), 1 (normal), 0 (most important), no (no warnings)
+      },
+      files: {
+        src: ['<%= config.production %>/app/assets/stylesheets/main.css']
+      }
+    },
 
   });
 
@@ -345,6 +371,9 @@ module.exports = function(grunt) {
   // files
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+
+  // validation
+  grunt.loadNpmTasks('grunt-w3c-validation');
 
   // runners
   grunt.registerTask('default', [
@@ -392,6 +421,11 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deploy', [
     'sshexec:deploy'
+  ]);
+
+  grunt.registerTask('validation', [
+    'html-validation',
+    'css-validation'
   ]);
 
 };

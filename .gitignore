@@ -3,3 +3,5 @@ node_modules/
 .sass-cache/
 test/
 secret.json
+validation-report.json
+validation-status.json
