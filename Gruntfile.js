@@ -72,6 +72,18 @@ module.exports = function(grunt) {
       }
     },
 
+    // run server with slow connection
+    throttle: {
+      default: {
+        remot_host: 'localhost',
+        remote_port: 3000,
+        local_port: 3001,
+        upstream: 10*1024,
+        downstream: 100*1024,
+        keepalive: true
+      }
+    },
+
     // coffeescript
     coffee: {
       development: {
@@ -347,6 +359,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
+  grunt.loadNpmTasks('grunt-throttle');
 
   // stylesheets
   grunt.loadNpmTasks('grunt-contrib-cssmin');
