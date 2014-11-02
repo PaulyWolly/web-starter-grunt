@@ -266,7 +266,7 @@ module.exports = function(grunt) {
     },
 
     // deploy
-//    secret: grunt.file.readJSON('secret.json'),
+    //  secret: grunt.file.readJSON('secret.json'),
     sshexec: {
       deploy: {
         command: [
