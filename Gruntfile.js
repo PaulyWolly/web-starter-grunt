@@ -25,8 +25,11 @@ module.exports = function(grunt) {
         tasks: ['coffee:development']
       },
       templates: {
-        files: ['<%= config.development %>}/app/assets/**/templates/*.ejs'],
-        tasks: []
+        files: [
+          // '<%= config.development %>}/app/assets/**/templates/*.ejs',
+          '<%= config.development %>}/app/assets/javascripts_coffee/application/components/initialize/templates/test.mustache'
+        ],
+        tasks: ['copy:development']
       },
       css: {
         files: ['<%= config.development %>/app/assets/stylesheets/**/*.sass'],
@@ -37,7 +40,9 @@ module.exports = function(grunt) {
           '{,**/}*.html',
           '{.tmp,<%= config.development %>}/app/assets/stylesheets/{,**/}*.sass',
           '{.tmp,<%= config.development %>}/app/assets/javascripts/{,**/}*.js',
-          '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.ejs'],
+          // '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.ejs',
+//          '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.mustache'
+        ],
         options: {
           livereload: true
         }
@@ -283,7 +288,19 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      main: {
+      development: {
+        files: [
+          // copy mustache files
+          {
+            expand: true,
+            flatten: true,
+            src: ['<%= config.development %>/app/assets/javascripts_coffee/{,**/}*.mustache'],
+            dest: '<%= config.development %>/app/assets/javascripts/{,**/}*.mustache',
+            filter: 'isFile'
+          }
+        ]
+      },
+      production: {
         files: [
           // copy html files
           {
@@ -351,7 +368,7 @@ module.exports = function(grunt) {
       files: {
         src: ['<%= config.production %>/app/assets/stylesheets/main.css']
       }
-    },
+    }
 
   });
 
@@ -429,7 +446,7 @@ module.exports = function(grunt) {
     'imagemin',
     'svgmin',
     // copy
-    'copy'
+    'copy:production'
   ]);
 
   grunt.registerTask('deploy', [

@@ -1,4 +1,9 @@
-define ["path/marionette_app"], (App) ->
+define [
+  "path/marionette_app"
+], (
+  App
+) ->
+
 
   App.module "InitializeApp", (InitializeApp, App, Backbone, Marionette, $, _) ->
 

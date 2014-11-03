@@ -55,6 +55,8 @@
     "platform.js": "git@github.com:bestiejs/platform.js.git#~1.2.0",
     "gsap": "git@github.com:greensock/GreenSock-JS.git#~1.13.2",
     "skrollr": "git@github.com:Prinzhorn/skrollr.git#~0.6.27",
-    "hammerjs": "git@github.com:hammerjs/hammer.js.git#~2.0.4"
+    "hammerjs": "git@github.com:hammerjs/hammer.js.git#~2.0.4",
+    "mustache": "git@github.com:janl/mustache.js.git#~0.8.2",
+    "requirejs.mustache": "git@github.com:jfparadis/requirejs-mustache.git"
   }
 }
