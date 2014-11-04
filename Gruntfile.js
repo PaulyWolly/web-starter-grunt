@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       },
       templates: {
         files: [
-          '<%= config.development %>}/app/assets/**/templates/*.ejs',
+          '<%= config.development %>/app/assets/**/templates/*.ejs',
           '<%= config.development %>/app/assets/**/templates/*.mustache'
         ],
         tasks: ['sync']
