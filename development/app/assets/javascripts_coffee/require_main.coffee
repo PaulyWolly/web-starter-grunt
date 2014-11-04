@@ -21,6 +21,7 @@ require.config
     "mustache":                 "vendor/assets/bower_components/mustache/mustache"
     "stache":                   "vendor/assets/bower_components/requirejs.mustache/stache"
     "ejs":                      "vendor/assets/bower_components/requirejs.ejs/ejs"
+    "tpl":                      "vendor/assets/bower_components/requirejs.tpl/tpl"
     "domready":                 "vendor/assets/bower_components/requirejs.domready/domReady"
     "async":                    "vendor/assets/bower_components/requirejs.plugins/src/async"
     "font":                     "vendor/assets/bower_components/requirejs.plugins/src/font"
@@ -99,6 +100,9 @@ require.config
 
   stache:
     extension: '.mustache'
+
+  tpl:
+    extension: '.ejs'
 
 require [
   "path/marionette_app"

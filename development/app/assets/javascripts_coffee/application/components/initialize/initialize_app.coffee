@@ -3,6 +3,7 @@ define [
 ], (
   App
 ) ->
+
   App.module "InitializeApp", (InitializeApp, App, Backbone, Marionette, $, _) ->
 
     @startWithParent = false
