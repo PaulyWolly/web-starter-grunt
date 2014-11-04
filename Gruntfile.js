@@ -26,10 +26,10 @@ module.exports = function(grunt) {
       },
       templates: {
         files: [
-          // '<%= config.development %>}/app/assets/**/templates/*.ejs',
-          '<%= config.development %>}/app/assets/javascripts_coffee/application/components/initialize/templates/test.mustache'
+          '<%= config.development %>}/app/assets/**/templates/*.ejs',
+          '<%= config.development %>/app/assets/**/templates/*.mustache'
         ],
-        tasks: ['copy:development']
+        tasks: ['sync']
       },
       css: {
         files: ['<%= config.development %>/app/assets/stylesheets/**/*.sass'],
@@ -40,8 +40,8 @@ module.exports = function(grunt) {
           '{,**/}*.html',
           '{.tmp,<%= config.development %>}/app/assets/stylesheets/{,**/}*.sass',
           '{.tmp,<%= config.development %>}/app/assets/javascripts/{,**/}*.js',
-          // '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.ejs',
-//          '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.mustache'
+          '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.ejs',
+          '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.mustache'
         ],
         options: {
           livereload: true
@@ -154,12 +154,12 @@ module.exports = function(grunt) {
       },
       development: {
         files: {
-          '<%= config.development %>/app/assets/stylesheets/main.css': '<%= config.development %>/app/assets/stylesheets/main.sass',
+          '<%= config.development %>/app/assets/stylesheets/main.css': '<%= config.development %>/app/assets/stylesheets/main.sass'
         }
       },
       production: {
         files: {
-          '<%= config.production %>/app/assets/stylesheets/main.css': '<%= config.development %>/app/assets/stylesheets/main.sass',
+          '<%= config.production %>/app/assets/stylesheets/main.css': '<%= config.development %>/app/assets/stylesheets/main.sass'
         }
       }
     },
@@ -288,17 +288,18 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      development: {
-        files: [
-          // copy mustache files
-          {
-            expand: true,
-            flatten: true,
-            src: ['<%= config.development %>/app/assets/javascripts_coffee/{,**/}*.mustache'],
-            dest: '<%= config.development %>/app/assets/javascripts/{,**/}*.mustache',
-            filter: 'isFile'
-          }
-        ]
+      'development-templates': {
+        files: {
+          "server-dist/": "server/**/*!(.coffee)"
+        },
+        expand: true,
+        flatten: false,
+        src: ['<%= config.development %>/app/assets/javascripts_coffee/**/*.mustache'],
+        dest: '<%= config.development %>/app/assets/javascripts/',
+        filter: 'isFile',
+        options: {
+          cwd: '<%= config.development %>/app/assets/javascripts_coffee/'
+        }
       },
       production: {
         files: [
@@ -342,6 +343,21 @@ module.exports = function(grunt) {
       }
     },
 
+    sync: {
+      main: {
+        files: [{
+          cwd: '<%= config.development %>/app/assets/javascripts_coffee/',
+          src: [
+            '**/*.ejs',
+            '**/*.mustache'
+          ],
+          dest: '<%= config.development %>/app/assets/javascripts/',
+        }],
+        pretend: false,
+        verbose: true
+      }
+    },
+
     clean: ["<%= config.production %>"],
 
     // validation
@@ -372,7 +388,7 @@ module.exports = function(grunt) {
 
   });
 
-  // server
+    // server
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
@@ -401,6 +417,7 @@ module.exports = function(grunt) {
   // files
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-sync');
 
   // validation
   grunt.loadNpmTasks('grunt-w3c-validation');
@@ -408,7 +425,7 @@ module.exports = function(grunt) {
   // runners
   grunt.registerTask('default', [
     'connect:development',
-    'open:development',
+//    'open:development',
     'watch'
   ]);
 

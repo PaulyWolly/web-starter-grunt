@@ -31,6 +31,8 @@ require.config
     "noext":                    "vendor/assets/bower_components/requirejs.plugins/src/noext"
     "googlemap":                "vendor/assets/bower_components/requirejs.googlemap/dist/GoogleMap"
     "modernizr":                "vendor/assets/bower_components/modernizr/modernizr"
+    "cs":                       "vendor/assets/bower_components/require.cs/cs"
+    "coffee-script":            "vendor/assets/bower_components/coffeescript/extras/coffee-script"
     "jquery.lazyload":          "vendor/assets/bower_components/jquery.lazyload/jquery.lazyload"
     "jquery.scrolltop":         "vendor/assets/bower_components/jquery.lazyload/jquery.scrollstop"
     "jquery.placeholder":       "vendor/assets/bower_components/jquery.placeholder/jquery.placeholder"
@@ -63,6 +65,7 @@ require.config
     "marionette":               { deps: ["backbone"], exports: "Marionette" }
     "ejs":                      { exports: "ejs" }
     "mustache":                 { exports: "Mustache" }
+    "cs":                       { deps: ["coffee-script"] }
     "jquery.placeholder":       { deps: ["jquery"], exports: "$.fn.placeholder" }
     "jquery.scrolltop":         { deps: ["jquery"], exports: "$.fn.scrolltop" }
     "jquery.lazyload":          { deps: ["jquery", "jquery.scrolltop"] }
