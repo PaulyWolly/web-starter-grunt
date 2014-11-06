@@ -26,10 +26,10 @@ module.exports = function(grunt) {
       },
       templates: {
         files: [
-          // '<%= config.development %>}/app/assets/**/templates/*.ejs',
-          '<%= config.development %>}/app/assets/javascripts_coffee/application/components/initialize/templates/test.mustache'
+          '<%= config.development %>/app/assets/**/templates/*.ejs',
+          '<%= config.development %>/app/assets/**/templates/*.mustache'
         ],
-        tasks: ['copy:development']
+        tasks: ['sync']
       },
       css: {
         files: ['<%= config.development %>/app/assets/stylesheets/**/*.sass'],
@@ -40,8 +40,8 @@ module.exports = function(grunt) {
           '{,**/}*.html',
           '{.tmp,<%= config.development %>}/app/assets/stylesheets/{,**/}*.sass',
           '{.tmp,<%= config.development %>}/app/assets/javascripts/{,**/}*.js',
-          // '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.ejs',
-//          '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.mustache'
+          '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.ejs',
+          '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.mustache'
         ],
         options: {
           livereload: true
@@ -154,12 +154,12 @@ module.exports = function(grunt) {
       },
       development: {
         files: {
-          '<%= config.development %>/app/assets/stylesheets/main.css': '<%= config.development %>/app/assets/stylesheets/main.sass',
+          '<%= config.development %>/app/assets/stylesheets/main.css': '<%= config.development %>/app/assets/stylesheets/main.sass'
         }
       },
       production: {
         files: {
-          '<%= config.production %>/app/assets/stylesheets/main.css': '<%= config.development %>/app/assets/stylesheets/main.sass',
+          '<%= config.production %>/app/assets/stylesheets/main.css': '<%= config.development %>/app/assets/stylesheets/main.sass'
         }
       }
     },
@@ -208,7 +208,7 @@ module.exports = function(grunt) {
       },
       production: {
         expand: true,
-        cwd: '<%= config.production %>/app/assets/stylesheets/',
+        cwd: '<%= config.development %>/app/assets/stylesheets/',
         src: ['*.css', '!*.min.css'],
         dest: '<%= config.production %>/app/assets/stylesheets/',
         ext: '.css',
@@ -288,18 +288,6 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      development: {
-        files: [
-          // copy mustache files
-          {
-            expand: true,
-            flatten: true,
-            src: ['<%= config.development %>/app/assets/javascripts_coffee/{,**/}*.mustache'],
-            dest: '<%= config.development %>/app/assets/javascripts/{,**/}*.mustache',
-            filter: 'isFile'
-          }
-        ]
-      },
       production: {
         files: [
           // copy html files
@@ -334,11 +322,27 @@ module.exports = function(grunt) {
           // copy fonts
           {
             expand: true,
-            flatten: true,
-            src: ['<%= config.development %>/app/assets/fonts/*'],
+            flatten: false,
+            cwd: '<%= config.development %>/app/assets/fonts/',
+            src: ['**/*'],
             dest: '<%= config.production %>/app/assets/fonts/'
           }
         ]
+      }
+    },
+
+    sync: {
+      main: {
+        files: [{
+          cwd: '<%= config.development %>/app/assets/javascripts_coffee/',
+          src: [
+            '**/*.ejs',
+            '**/*.mustache'
+          ],
+          dest: '<%= config.development %>/app/assets/javascripts/',
+        }],
+        pretend: false,
+        verbose: true
       }
     },
 
@@ -348,7 +352,7 @@ module.exports = function(grunt) {
     'html-validation': {
       options: {
         reset: true,
-        stoponerror: true,
+        stoponerror: false,
         relaxerror: []
       },
       files: {
@@ -401,6 +405,7 @@ module.exports = function(grunt) {
   // files
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-sync');
 
   // validation
   grunt.loadNpmTasks('grunt-w3c-validation');
@@ -408,7 +413,7 @@ module.exports = function(grunt) {
   // runners
   grunt.registerTask('default', [
     'connect:development',
-    'open:development',
+//    'open:development',
     'watch'
   ]);
 
@@ -431,7 +436,6 @@ module.exports = function(grunt) {
     // stylesheets
     'sass:development',
     'cssmin:development',
-    'sass:production',
     'cssmin:production',
     'csscomb:production',
     'autoprefixer:production',

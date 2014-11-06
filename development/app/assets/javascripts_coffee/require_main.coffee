@@ -4,6 +4,8 @@ require.config
 
   baseUrl: ""
 
+  waitSeconds: 15
+
   paths:
     "path":                     "app/assets/javascripts/application"
     "jquery":                   "vendor/assets/bower_components/jquery/dist/jquery"
