@@ -27,9 +27,7 @@
     "grunt-w3c-validation": "^0.1.16",
     "qunitjs": "~1.14.0",
     "rjs-build-analysis": "0.0.3",
-    "grunt-sync": "^0.2.0"
-  },
-  "devDependencies": {
+    "grunt-sync": "^0.2.0",
     "grunt-closure-tools": "^0.9.7"
   }
 }

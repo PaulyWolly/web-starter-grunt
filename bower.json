@@ -38,6 +38,8 @@
     "requirejs.domready": "git@github.com:requirejs/domReady.git",
     "requirejs.plugins": "git@github.com:millermedeiros/requirejs-plugins.git",
     "requirejs.googlemap": "git@github.com:thomaswelton/requirejs-google-maps.git",
+    "requirejs.mustache": "git@github.com:jfparadis/requirejs-mustache.git",
+    "requirejs.tpl": "git@github.com:jfparadis/requirejs-tpl.git",
     "modernizr": "git@github.com:Modernizr/Modernizr.git#~2.8.3",
     "html5shiv": "git@github.com:aFarkas/html5shiv.git#~3.7.2",
     "respond": "git@github.com:scottjehl/Respond.git#~1.4.2",
@@ -56,7 +58,6 @@
     "gsap": "git@github.com:greensock/GreenSock-JS.git#~1.13.2",
     "skrollr": "git@github.com:Prinzhorn/skrollr.git#~0.6.27",
     "hammerjs": "git@github.com:hammerjs/hammer.js.git#~2.0.4",
-    "mustache": "git@github.com:janl/mustache.js.git#~0.8.2",
-    "requirejs.mustache": "git@github.com:jfparadis/requirejs-mustache.git"
+    "mustache": "git@github.com:janl/mustache.js.git#~0.8.2"
   }
 }
