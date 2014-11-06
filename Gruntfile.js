@@ -394,6 +394,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-closure-tools');
 
   // images
   grunt.loadNpmTasks('grunt-contrib-imagemin');
