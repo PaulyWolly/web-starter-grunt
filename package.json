@@ -1,10 +1,9 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "bower": "~1.2.7",
     "coffee-script": "~1.7.1",
     "grunt": "~0.4.5",
     "grunt-autoprefixer": "~0.8.1",
-    "grunt-combine-media-queries": "~1.0.19",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-coffee": "~0.10.1",
     "grunt-contrib-connect": "~0.8.0",
@@ -17,6 +16,7 @@
     "grunt-contrib-sass": "~0.7.3",
     "grunt-contrib-uglify": "~0.5.0",
     "grunt-contrib-watch": "~0.6.1",
+    "grunt-css-mqpacker": "^1.0.0",
     "grunt-csscomb": "~3.0.0",
     "grunt-open": "~0.2.3",
     "grunt-pixrem": "~0.1.2",
@@ -26,8 +26,9 @@
     "grunt-throttle": "^0.2.1",
     "grunt-w3c-validation": "^0.1.16",
     "qunitjs": "~1.14.0",
-    "rjs-build-analysis": "0.0.3",
-    "grunt-sync": "^0.2.0",
-    "grunt-closure-tools": "^0.9.7"
+    "rjs-build-analysis": "0.0.3"
+  },
+  "dependencies": {
+    "grunt-sync": "^0.2.0"
   }
 }

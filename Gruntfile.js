@@ -170,7 +170,7 @@ module.exports = function(grunt) {
         dynamic_mappings: {
           expand: true,
           cwd: '<%= config.development %>/app/assets/stylesheets/',
-          src: ['*.css', '*.css'],
+          src: ['*.css'],
           dest: '<%= config.development %>/app/assets/stylesheets/',
           ext: '.css'
         }
@@ -179,20 +179,21 @@ module.exports = function(grunt) {
         dynamic_mappings: {
           expand: true,
           cwd: '<%= config.production %>/app/assets/stylesheets/',
-          src: ['*.css', '*.css'],
+          src: ['*.css'],
           dest: '<%= config.production %>/app/assets/stylesheets/',
           ext: '.css'
         }
       }
     },
 
-    // autoprefixer
     autoprefixer: {
       development: {
-        src: '<%= config.development %>/app/assets/stylesheets/main.css'
+        src: '<%= config.development %>/app/assets/stylesheets/main.css',
+        dest: '<%= config.development %>/app/assets/stylesheets/main.css'
       },
       production: {
-        src: '<%= config.production %>/app/assets/stylesheets/main.css'
+        src: '<%= config.production %>/app/assets/stylesheets/main.css',
+        dest: '<%= config.production %>/app/assets/stylesheets/main.css'
       }
     },
 
@@ -216,16 +217,27 @@ module.exports = function(grunt) {
       }
     },
 
-    // cmq
-    cmq: {
+    css_mqpacker: {
       development: {
-        files: {
-          '<%= config.development %>/app/assets/stylesheets/': ['<%= config.development %>/app/assets/stylesheets/main.css']
+        options: {
+          map: true
+        },
+        main: {
+          expand: true,
+          cwd: '<%= config.development %>/app/assets/stylesheets/',
+          src: '*.css',
+          dest: '<%= config.development %>/app/assets/stylesheets/'
         }
       },
       production: {
-        files: {
-          '<%= config.production %>/app/assets/stylesheets/': ['<%= config.production %>/app/assets/stylesheets/main.css']
+        options: {
+          map: true
+        },
+        main: {
+          expand: true,
+          cwd: '<%= config.production %>/app/assets/stylesheets/',
+          src: '*.css',
+          dest: '<%= config.production %>/app/assets/stylesheets/'
         }
       }
     },
@@ -288,6 +300,19 @@ module.exports = function(grunt) {
     },
 
     copy: {
+      'development-templates': {
+        files: {
+          "server-dist/": "server/**/*!(.coffee)"
+        },
+        expand: true,
+        flatten: false,
+        src: ['<%= config.development %>/app/assets/javascripts_coffee/**/*.mustache'],
+        dest: '<%= config.development %>/app/assets/javascripts/',
+        filter: 'isFile',
+        options: {
+          cwd: '<%= config.development %>/app/assets/javascripts_coffee/'
+        }
+      },
       production: {
         files: [
           // copy html files
@@ -346,7 +371,7 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: ["<%= config.production %>"],
+    clean: ['.sass-cache', "<%= config.production %>"],
 
     // validation
     'html-validation': {
@@ -376,7 +401,7 @@ module.exports = function(grunt) {
 
   });
 
-    // server
+  // server
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
@@ -387,14 +412,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-csscomb');
-  grunt.loadNpmTasks('grunt-combine-media-queries');
   grunt.loadNpmTasks('grunt-pixrem');
+  grunt.loadNpmTasks('grunt-css-mqpacker');
 
   // javascripts
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-closure-tools');
 
   // images
   grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -423,10 +447,10 @@ module.exports = function(grunt) {
     'sass:development',
     'cssmin:development',
     'csscomb:development',
-    'autoprefixer:development',
-    'cmq:development',
+    'css_mqpacker:development',
     'pixrem:development',
     'cssmin:development',
+    'autoprefixer:development',
     // javascripts
     'coffee:development'
   ]);
@@ -439,10 +463,10 @@ module.exports = function(grunt) {
     'cssmin:development',
     'cssmin:production',
     'csscomb:production',
-    'autoprefixer:production',
-    'cmq:production',
+    'css_mqpacker:production',
     'pixrem:production',
     'cssmin:production',
+    'autoprefixer:production',
     // javascripts
     'coffee:development',
     'requirejs',
