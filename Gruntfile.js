@@ -118,7 +118,7 @@ module.exports = function(grunt) {
           mainConfigFile: "<%= config.development %>/app/assets/javascripts/require_main.js",
           baseUrl: "<%= config.development %>/",
           name: "app/assets/javascripts/require_main",
-          out: "<%= config.production %>/app/assets/javascripts/require_main.pre.js",
+          out: "<%= config.production %>/app/assets/javascripts/require_main.js",
           findNestedDependencies: true,
           inlineText: true,
           optimize: "none", // uglify
@@ -138,24 +138,11 @@ module.exports = function(grunt) {
       }
     },
 
-    'closure-compiler': {
-      production: {
-        closurePath: 'compiler',
-        js: '<%= config.production %>/app/assets/javascripts/require_main.pre.js',
-        jsOutputFile: '<%= config.production %>/app/assets/javascripts/require_main.js',
-        maxBuffer: 999999 * 1024,
-        options: {
-          compilation_level: 'ADVANCED_OPTIMIZATIONS',
-          language_in: 'ECMASCRIPT5_STRICT'
-        }
-      }
-    },
-
     // uglify
     uglify: {
       production: {
-        src: '<%= config.production %>/app/assets/javascripts/require_main.pre.js',
-        dest: '<%= config.production %>/app/assets/javascripts/require_main.pre.js'
+        src: '<%= config.production %>/app/assets/javascripts/require_main.js',
+        dest: '<%= config.production %>/app/assets/javascripts/require_main.js'
       }
     },
 
@@ -432,7 +419,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-closure-compiler');
 
   // images
   grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -484,8 +470,7 @@ module.exports = function(grunt) {
     // javascripts
     'coffee:development',
     'requirejs',
-//    'uglify:production',
-    'closure-compiler:production',
+    'uglify:production',
     // images
     'imagemin',
     'svgmin',
