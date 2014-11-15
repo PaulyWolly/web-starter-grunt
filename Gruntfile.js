@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     watch: {
       coffee: {
         files: ['<%= config.development %>/app/assets/javascripts_coffee/{,**/}*.coffee'],
-        tasks: ['coffee:development']
+        tasks: ['coffee:development', 'sync']
       },
       templates: {
         files: [
@@ -121,7 +121,7 @@ module.exports = function(grunt) {
           out: "<%= config.production %>/app/assets/javascripts/require_main.js",
           findNestedDependencies: true,
           inlineText: true,
-          optimize: "none", // uglify
+          optimize: "uglify",
           wrap: true,
           wrapShim: true,
           preserveLicenseComments: false,
@@ -300,18 +300,16 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      'development-templates': {
-        files: {
-          "server-dist/": "server/**/*!(.coffee)"
-        },
-        expand: true,
-        flatten: false,
-        src: ['<%= config.development %>/app/assets/javascripts_coffee/**/*.mustache'],
-        dest: '<%= config.development %>/app/assets/javascripts/',
-        filter: 'isFile',
-        options: {
-          cwd: '<%= config.development %>/app/assets/javascripts_coffee/'
-        }
+      'templates': {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.development %>/app/assets/javascripts_coffee',
+            src: ['**/*.mustache', '**/*.ejs'],
+            dest: '<%= config.development %>/app/assets/javascripts/',
+            filter: 'isFile'
+          }
+        ]
       },
       production: {
         files: [
@@ -371,7 +369,7 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: ['.sass-cache', "<%= config.production %>"],
+    clean: [".sass-cache", "<%= config.production %>"],
 
     // validation
     'html-validation': {
@@ -452,7 +450,8 @@ module.exports = function(grunt) {
     'cssmin:development',
     'autoprefixer:development',
     // javascripts
-    'coffee:development'
+    'coffee:development',
+    'copy:templates'
   ]);
 
   grunt.registerTask('production', [
@@ -461,7 +460,14 @@ module.exports = function(grunt) {
     // stylesheets
     'sass:development',
     'cssmin:development',
+    'csscomb:development',
+    'css_mqpacker:development',
+    'pixrem:development',
+    'cssmin:development',
+    'autoprefixer:development',
+
     'cssmin:production',
+    'autoprefixer:development',
     'csscomb:production',
     'css_mqpacker:production',
     'pixrem:production',
@@ -469,9 +475,10 @@ module.exports = function(grunt) {
     'autoprefixer:production',
     // javascripts
     'coffee:development',
+    'copy:templates',
     'requirejs',
     'uglify:production',
-    // images
+    //images
     'imagemin',
     'svgmin',
     // copy

@@ -5,3 +5,4 @@ test/
 secret.json
 validation-report.json
 validation-status.json
+atlassian-ide-plugin.xml
