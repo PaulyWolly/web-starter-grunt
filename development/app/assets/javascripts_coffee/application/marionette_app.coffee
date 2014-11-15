@@ -1,5 +1,7 @@
 define ["marionette"], (Marionette) ->
 
+  "use strict"
+
   App = new Marionette.Application()
 
   App.rootRoute = ''

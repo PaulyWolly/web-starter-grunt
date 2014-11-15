@@ -1,6 +1,6 @@
 <h1 align="center">Backbone.Marionette</h1>
 <p align="center">
-  <img title="backbone marionette" src='http://marionettejs.com/downloads/marionette-gh-banner.svg' />
+  <img title="backbone marionette" src='https://cdn.mediacru.sh/6sNqngKFuqft.svg' />
 </p>
 <p align="center">The Backbone framework</p>
 <p align="center">
@@ -110,7 +110,7 @@ MarionetteJS currently works with the following libraries:
 
 Marionette has not been tested against any other versions of these
 libraries. You may or may not have success if you use a version other
-than what it listed here.
+than what is listed here.
 
 
 ## How to Contribute

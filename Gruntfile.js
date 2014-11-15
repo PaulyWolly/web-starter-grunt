@@ -1,8 +1,3 @@
-var mountFolder = function (connect, dir) {
-  'use strict';
-  return connect.static(require('path').resolve(dir));
-};
-
 module.exports = function(grunt) {
 
   'use strict';

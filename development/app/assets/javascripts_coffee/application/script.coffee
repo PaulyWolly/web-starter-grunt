@@ -4,18 +4,22 @@ define [
   Modernizr, device, platform, $
 ) ->
 
+  "use strict"
+
+  # Base class for project.
   class Project
 
     defaults:
+
       $window: $(window)
       $document: $(document)
       $html: $('html')
       $body: $('body')
 
+
+    # Construct a new project.
     constructor: (options) ->
       @setOptions options
-      @setOptions
-        $placeholderForms: @options.$body.find("input, textarea")
 
     setOptions: (options) ->
       @options = merge {}, @defaults, options
@@ -47,8 +51,14 @@ define [
           target[property] = extension[property]
       target
 
-    ###### Set browser and os version class name to @$html
-    setBrowserVersion: ->
+
+    # Detect browser version. Set classname to <html> browser and os version
+    #
+    # @example detectBrowser
+    #   new Project().detectBrowser()
+    #
+    detectBrowser: ->
+
       name = platform.name.toLowerCase()
       version = name + parseFloat(platform.version)
       if navigator.appVersion.indexOf("Windows") != -1 then os = "windows"
@@ -57,11 +67,32 @@ define [
       else if navigator.appVersion.indexOf("Linux") != -1 then os = "linux"
       @options.$html.addClass( "#{os} #{name} #{version}")
 
-    ###### Set placeholder for old browsers
-    setBrowserPlaceholder: () ->
-      if @options.$html.hasClass("ie7") or @options.$html.hasClass("ie8")
-        require ["jquery.placeholder"], =>
-          @options.$placeholderForms.placeholder()
+
+    # Detect when typekit fonts are loaded. Set classname to tags.
+    #
+    # @example detectBrowser
+    #   new Project().detectBrowser()
+    #
+    detectTypekitLoad: -> domReady => @options.$html.addClass("typekit-active").removeClass("typekit-loading")
+
+
+    # Detect touch or mouse click.
+    #
+    # @example detectMouseOrTouchHandler
+    #   new Project().detectMouseOrTouchHandler()
+    #
+    detectMouseOrTouchHandler: -> @options.event = if device.mobile() or device.tablet() then "touchstart" else "click"
+
+
+    # Set placeholder for old browsers.
+    #
+    # @example setPlaceholder
+    #   new Project().setPlaceholder()
+    #
+    setPlaceholder: () ->
+      if @options.$html.hasClass("ie7") or @options.$html.hasClass("ie8") or @options.$html.hasClass("ie9")
+        require ["jquery.placeholder"], => @options.$placeholder.placeholder()
+
 
     ###### test events
     events: () ->
@@ -81,7 +112,8 @@ define [
         mc.on "panleft panright panup pandown tap press swipeleft swiperight", (ev) ->
           console.log ev.type
 
-  project = new Project()
-  project.setBrowserVersion()
-  project.setBrowserPlaceholder()
+  project = new Project
+    $placeholder: $("input, textarea")
+  project.detectBrowser()
+  project.setPlaceholder()
 #  project.events()

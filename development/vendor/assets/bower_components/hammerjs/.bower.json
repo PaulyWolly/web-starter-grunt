@@ -15,6 +15,5 @@
   },
   "_source": "git@github.com:hammerjs/hammer.js.git",
   "_target": "~2.0.4",
-  "_originalSource": "git@github.com:hammerjs/hammer.js.git",
-  "_direct": true
+  "_originalSource": "git@github.com:hammerjs/hammer.js.git"
 }

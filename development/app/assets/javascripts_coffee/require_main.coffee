@@ -1,3 +1,5 @@
+"use strict"
+
 require.config
 
   urlArgs: "bust=" +  (new Date()).getTime()
@@ -22,7 +24,6 @@ require.config
     "text":                     "vendor/assets/bower_components/requirejs.text/text"
     "mustache":                 "vendor/assets/bower_components/mustache/mustache"
     "stache":                   "vendor/assets/bower_components/requirejs.mustache/stache"
-    "ejs":                      "vendor/assets/bower_components/requirejs.ejs/ejs"
     "tpl":                      "vendor/assets/bower_components/requirejs.tpl/tpl"
     "domready":                 "vendor/assets/bower_components/requirejs.domready/domReady"
     "async":                    "vendor/assets/bower_components/requirejs.plugins/src/async"
@@ -34,8 +35,6 @@ require.config
     "noext":                    "vendor/assets/bower_components/requirejs.plugins/src/noext"
     "googlemap":                "vendor/assets/bower_components/requirejs.googlemap/dist/GoogleMap"
     "modernizr":                "vendor/assets/bower_components/modernizr/modernizr"
-    "cs":                       "vendor/assets/bower_components/require.cs/cs"
-    "coffee-script":            "vendor/assets/bower_components/coffeescript/extras/coffee-script"
     "jquery.lazyload":          "vendor/assets/bower_components/jquery.lazyload/jquery.lazyload"
     "jquery.scrolltop":         "vendor/assets/bower_components/jquery.lazyload/jquery.scrollstop"
     "jquery.placeholder":       "vendor/assets/bower_components/jquery.placeholder/jquery.placeholder"
@@ -46,7 +45,7 @@ require.config
     "pace":                     "vendor/assets/bower_components/pace/pace"
     "moment":                   "vendor/assets/bower_components/moment/moment"
     "device":                   "vendor/assets/bower_components/device/lib/device"
-    "platform":                 "vendor/assets/bower_components/platform.js/platform"
+    "platform":                 "vendor/assets/bower_components/platform/platform"
     "rem":                      "vendor/assets/components/rem/rem"
     "TimelineMax":              "vendor/assets/bower_components/gsap/src/uncompressed/TimelineMax"
     "TweenMax":                 "vendor/assets/bower_components/gsap/src/uncompressed/TweenMax"
@@ -66,9 +65,7 @@ require.config
     "backbone.relational":      { deps: ["backbone"] }
     "backbone.syphon":          { deps: ["backbone"] }
     "marionette":               { deps: ["backbone"], exports: "Marionette" }
-    "ejs":                      { exports: "ejs" }
     "mustache":                 { exports: "Mustache" }
-    "cs":                       { deps: ["coffee-script"] }
     "jquery.placeholder":       { deps: ["jquery"], exports: "$.fn.placeholder" }
     "jquery.scrolltop":         { deps: ["jquery"], exports: "$.fn.scrolltop" }
     "jquery.lazyload":          { deps: ["jquery", "jquery.scrolltop"] }

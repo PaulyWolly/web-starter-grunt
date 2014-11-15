@@ -3,7 +3,7 @@
   "description": "Make your Backbone.js apps dance with a composite application architecture!",
   "homepage": "http://marionettejs.org",
   "main": "./lib/core/backbone.marionette.js",
-  "version": "2.2.0",
+  "version": "2.2.2",
   "keywords": [
     "backbone",
     "framework",
@@ -44,11 +44,11 @@
     "sinonjs": "1.7.3",
     "jasmine-sinon": "0.3.1"
   },
-  "_release": "2.2.0",
+  "_release": "2.2.2",
   "_resolution": {
     "type": "version",
-    "tag": "v2.2.0",
-    "commit": "646f2af65d6411be5d861f9557e3be6c12fd3547"
+    "tag": "v2.2.2",
+    "commit": "4000e4645576f6bf5df839cb68b026dc5ed3fbe9"
   },
   "_source": "git@github.com:marionettejs/backbone.marionette.git",
   "_target": "~2.2.0",

@@ -1,5 +1,5 @@
 {
-  "name": "requirejs-mustache",
+  "name": "requirejs.mustache",
   "homepage": "https://github.com/jfparadis/requirejs-mustache",
   "_release": "967960075a",
   "_resolution": {
@@ -9,6 +9,5 @@
   },
   "_source": "git@github.com:jfparadis/requirejs-mustache.git",
   "_target": "*",
-  "_originalSource": "git@github.com:jfparadis/requirejs-mustache.git",
-  "_direct": true
+  "_originalSource": "git@github.com:jfparadis/requirejs-mustache.git"
 }

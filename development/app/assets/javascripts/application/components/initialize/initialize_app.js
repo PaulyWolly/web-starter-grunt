@@ -1,5 +1,6 @@
 (function() {
   define(["path/marionette_app"], function(App) {
+    "use strict";
     return App.module("InitializeApp", function(InitializeApp, App, Backbone, Marionette, $, _) {
       var API;
       this.startWithParent = false;

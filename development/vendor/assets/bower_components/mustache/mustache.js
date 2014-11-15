@@ -14,6 +14,7 @@
     if (typeof define === "function" && define.amd) {
       define(mustache); // AMD
     } else {
+      root.Mustache = mustache; // <script>
     }
   }
 }(this, function (mustache) {

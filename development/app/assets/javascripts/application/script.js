@@ -3,6 +3,7 @@
     __hasProp = {}.hasOwnProperty;
 
   define(["modernizr", "device", "platform", "jquery"], function(Modernizr, device, platform, $) {
+    "use strict";
     var Project, project;
     Project = (function() {
       var merge;
@@ -16,9 +17,6 @@
 
       function Project(options) {
         this.setOptions(options);
-        this.setOptions({
-          $placeholderForms: this.options.$body.find("input, textarea")
-        });
       }
 
       Project.prototype.setOptions = function(options) {
@@ -81,7 +79,7 @@
         return target;
       };
 
-      Project.prototype.setBrowserVersion = function() {
+      Project.prototype.detectBrowser = function() {
         var name, os, version;
         name = platform.name.toLowerCase();
         version = name + parseFloat(platform.version);
@@ -97,11 +95,23 @@
         return this.options.$html.addClass("" + os + " " + name + " " + version);
       };
 
-      Project.prototype.setBrowserPlaceholder = function() {
-        if (this.options.$html.hasClass("ie7") || this.options.$html.hasClass("ie8")) {
+      Project.prototype.detectTypekitLoad = function() {
+        return domReady((function(_this) {
+          return function() {
+            return _this.options.$html.addClass("typekit-active").removeClass("typekit-loading");
+          };
+        })(this));
+      };
+
+      Project.prototype.detectMouseOrTouchHandler = function() {
+        return this.options.event = device.mobile() || device.tablet() ? "touchstart" : "click";
+      };
+
+      Project.prototype.setPlaceholder = function() {
+        if (this.options.$html.hasClass("ie7") || this.options.$html.hasClass("ie8") || this.options.$html.hasClass("ie9")) {
           return require(["jquery.placeholder"], (function(_this) {
             return function() {
-              return _this.options.$placeholderForms.placeholder();
+              return _this.options.$placeholder.placeholder();
             };
           })(this));
         }
@@ -148,9 +158,11 @@
       return Project;
 
     })();
-    project = new Project();
-    project.setBrowserVersion();
-    return project.setBrowserPlaceholder();
+    project = new Project({
+      $placeholder: $("input, textarea")
+    });
+    project.detectBrowser();
+    return project.setPlaceholder();
   });
 
 }).call(this);

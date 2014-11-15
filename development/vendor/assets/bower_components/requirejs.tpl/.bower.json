@@ -1,5 +1,5 @@
 {
-  "name": "requirejs-tpl",
+  "name": "requirejs.tpl",
   "homepage": "https://github.com/jfparadis/requirejs-tpl",
   "_release": "dffa4eb447",
   "_resolution": {
@@ -9,6 +9,5 @@
   },
   "_source": "git@github.com:jfparadis/requirejs-tpl.git",
   "_target": "*",
-  "_originalSource": "git@github.com:jfparadis/requirejs-tpl.git",
-  "_direct": true
+  "_originalSource": "git@github.com:jfparadis/requirejs-tpl.git"
 }

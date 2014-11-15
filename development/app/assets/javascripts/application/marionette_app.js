@@ -1,5 +1,6 @@
 (function() {
   define(["marionette"], function(Marionette) {
+    "use strict";
     var App;
     App = new Marionette.Application();
     App.rootRoute = '';
