@@ -10,7 +10,7 @@
 - Methodology: BEM
 
 
-## Getting Started
+#### Getting Started
 
 ```bash
 npm i
@@ -18,21 +18,21 @@ grunt
 ```
 
 
-## Build development version:
+#### Build development version:
 
 ```bash
 grunt development
 ```
 
 
-## Build production version:
+#### Build production version:
 
 ```bash
 grunt production
 ```
 
 
-## Deploy on server:
+#### Deploy on server:
 
 ```bash
 grunt deploy
