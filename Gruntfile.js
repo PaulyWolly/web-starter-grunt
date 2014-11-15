@@ -94,7 +94,7 @@ module.exports = function(grunt) {
     'copy:templates',
     // javascripts: production
     'requirejs',
-    'uglify:production',
+    //'uglify:production',
     //images: production
     'imagemin',
     'svgmin',

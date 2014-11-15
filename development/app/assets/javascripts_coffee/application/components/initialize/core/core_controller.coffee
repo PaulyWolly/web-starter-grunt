@@ -7,7 +7,6 @@ define [
 ) ->
   "use strict"
 
-  console.log React
 
   App.module "InitializeApp.Core", (Core, App, Backbone, Marionette, $, _) ->
 

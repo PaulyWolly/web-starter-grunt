@@ -1,7 +1,5 @@
 'use strict';
 
-var config = require('../config');
-
 module.exports = {
   development: {
     src: '<%= config.development %>/app/assets/stylesheets/main.css',

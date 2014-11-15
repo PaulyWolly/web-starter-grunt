@@ -1,7 +1,5 @@
 'use strict';
 
-var config = require('../config');
-
 //grunt.file.readJSON('../../secret.json'),
 
 module.exports = {

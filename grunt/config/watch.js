@@ -1,7 +1,5 @@
 'use strict';
 
-var config = require('../config');
-
 module.exports = {
   coffee: {
     files: ['<%= config.development %>/app/assets/javascripts_coffee/{,**/}*.coffee'],

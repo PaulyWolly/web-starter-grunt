@@ -1,11 +1,8 @@
 'use strict';
 
-var config = require('../config');
-
 module.exports = {
   compile: {
     options: {
-
       mainConfigFile: "<%= config.development %>/app/assets/javascripts/require_main.js",
       baseUrl: "<%= config.development %>/",
       name: "app/assets/javascripts/require_main",
@@ -30,8 +27,7 @@ module.exports = {
           return done(new Error('r.js built duplicate modules, please check the excludes option.'));
         }
         done();
-      },
-
+      }
     }
   }
 };
