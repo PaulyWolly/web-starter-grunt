@@ -1,13 +1,13 @@
 # web-starter-grunt 0.1.0 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-
-- [Marionette]
-- [Requirejs]
-- [React]
-- [Bower]
-- [Grunt]
-- [SASS]
-- [REM]
+#### Assets
+Frameworks: Backbone / Marionette / React.
+Task runner: Grunt.
+Preprocessors: SASS / Coffee.
+Loader: RequireJS.
+HTML & CSS Framework: Bootstrap.
+Package Manager: Bower.
+Methodology: BEM.
 
 
 ## Getting Started
