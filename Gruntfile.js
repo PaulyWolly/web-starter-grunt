@@ -4,8 +4,8 @@ module.exports = function(grunt) {
   var config = require('./grunt/config');
 
   grunt.initConfig({
-    config: config,
-    pkg: grunt.file.readJSON('package.json'),
+    config:            config,
+    pkg:               grunt.file.readJSON('package.json'),
     watch:             require('./grunt/config/watch'),
     connect:           require('./grunt/config/connect'),
     open:              require('./grunt/config/open'),
