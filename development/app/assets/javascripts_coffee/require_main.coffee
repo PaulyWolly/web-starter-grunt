@@ -21,6 +21,9 @@ require.config
     "backbone.babysitter":      "vendor/assets/bower_components/backbone.babysitter/lib/backbone.babysitter"
     "marionette":               "vendor/assets/bower_components/backbone.marionette/lib/backbone.marionette"
     "rivets":                   "vendor/assets/bower_components/rivets/dist/rivets"
+    "react":                    "vendor/assets/bower_components/react/build/react-with-addons",
+    "JSXTransformer":           "vendor/assets/bower_components/react/JSXTransformer",
+    "jsx":                      "vendor/assets/bower_components/requirejs.react-jsx/jsx"
     "text":                     "vendor/assets/bower_components/requirejs.text/text"
     "mustache":                 "vendor/assets/bower_components/mustache/mustache"
     "stache":                   "vendor/assets/bower_components/requirejs.mustache/stache"
@@ -65,6 +68,8 @@ require.config
     "backbone.relational":      { deps: ["backbone"] }
     "backbone.syphon":          { deps: ["backbone"] }
     "marionette":               { deps: ["backbone"], exports: "Marionette" }
+    "react":                    { "exports": "React" }
+    "JSXTransformer":           { "exports": "JSXTransformer"}
     "mustache":                 { exports: "Mustache" }
     "jquery.placeholder":       { deps: ["jquery"], exports: "$.fn.placeholder" }
     "jquery.scrolltop":         { deps: ["jquery"], exports: "$.fn.scrolltop" }
@@ -102,6 +107,13 @@ require.config
 
   tpl:
     extension: '.ejs'
+
+  jsx:
+    fileExtension: ".jsx"
+    transformOptions:
+      harmony: true
+      stripTypes: false
+    usePragma: false
 
 require [
   "path/marionette_app"
