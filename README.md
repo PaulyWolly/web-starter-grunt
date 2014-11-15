@@ -1,41 +1,23 @@
-# Marionette, Requirejs, Bower, Grunt, SASS, REM
+# web-starter-grunt 0.1.0 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
+## Marionette, Requirejs, React, Bower, Grunt, SASS, REM
 
-#### GET STARTED
+## Getting Started
 ```bash
-npm install -g grunt-cli
-```
-```bash
-npm install -g bower
-```
-```bash
-npm install
-```
-```bash
-bower install
-```
-```bash
+npm i
 grunt
 ```
-HTTP server:
-```bash
-http://0.0.0.0:3000
-```
 
-Build development version:
+## Build development version:
 ```bash
 grunt development
 ```
-Build production version:
+## Build production version:
 ```bash
 grunt production
 ```
-Live reload for Chrome:
-```http
-https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
-```
 
-Deploy on server:
+## Deploy on server:
 ```bash
 grunt deploy
 ```
@@ -58,4 +40,3 @@ grunt deploy
   }
 }
 ```
-

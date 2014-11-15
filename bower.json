@@ -1,7 +1,7 @@
 {
   "name": "spa for geeks",
   "description": "Marionette, Requirejs, CoffeeScript, SASS.",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "keywords": [
     "spa",
     "marionette",

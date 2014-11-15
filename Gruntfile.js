@@ -29,46 +29,32 @@ module.exports = function(grunt) {
     'css-validation':  require('./grunt/config/css-validation')
   });
 
-  // server
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-open');
-  grunt.loadNpmTasks('grunt-throttle');
-
-  // stylesheets
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-csscomb');
-  grunt.loadNpmTasks('grunt-pixrem');
-  grunt.loadNpmTasks('grunt-css-mqpacker');
-
-  // javascripts
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-coffee');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
-
-  // images
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-svgmin');
-
-  // deployment
-  grunt.loadNpmTasks('grunt-ssh');
-
-  // files
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-sync');
-
-  // validation
-  grunt.loadNpmTasks('grunt-w3c-validation');
+  require('jit-grunt')(grunt, {
+    watch:             'grunt-contrib-watch',
+    connect:           'grunt-contrib-connect',
+    open:              'grunt-open',
+    throttle:          'grunt-throttle',
+    cssmin:            'grunt-contrib-cssmin',
+    sass:              'grunt-contrib-sass',
+    autoprefixer:      'grunt-autoprefixer',
+    csscomb:           'grunt-csscomb',
+    pixrem:            'grunt-pixrem',
+    'css_mqpacker':    'grunt-css-mqpacker',
+    uglify:            'grunt-contrib-uglify',
+    coffee:            'grunt-contrib-coffee',
+    requirejs:         'grunt-contrib-requirejs',
+    imagemin:          'grunt-contrib-imagemin',
+    svgmin:            'grunt-svgmin',
+    sshexec:           'grunt-ssh',
+    copy:              'grunt-contrib-copy',
+    clean:             'grunt-contrib-clean',
+    sync:              'grunt-sync',
+    'html-validation': 'grunt-w3c-validation',
+    'css-validation':  'grunt-w3c-validation'
+  });
 
   // runners
-  grunt.registerTask('default', [
-    'connect:development',
-    // 'open:development',
-    'watch'
-  ]);
+  grunt.registerTask('default', ['connect:development', 'watch']);
 
   grunt.registerTask('development', [
     // stylesheets
@@ -85,9 +71,9 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('production', [
-    // clean
+    // clean: production
     'clean',
-    // stylesheets
+    // stylesheets: development
     'sass:development',
     'cssmin:development',
     'csscomb:development',
@@ -95,7 +81,7 @@ module.exports = function(grunt) {
     'pixrem:development',
     'cssmin:development',
     'autoprefixer:development',
-
+    // stylesheets: production
     'cssmin:production',
     'autoprefixer:development',
     'csscomb:production',
@@ -103,25 +89,21 @@ module.exports = function(grunt) {
     'pixrem:production',
     'cssmin:production',
     'autoprefixer:production',
-    // javascripts
+    // javascripts: development
     'coffee:development',
     'copy:templates',
+    // javascripts: production
     'requirejs',
     'uglify:production',
-    //images
+    //images: production
     'imagemin',
     'svgmin',
-    // copy
+    // copy: production
     'copy:production'
   ]);
 
-  grunt.registerTask('deploy', [
-    'sshexec:deploy'
-  ]);
-
-  grunt.registerTask('validation', [
-    'html-validation',
-    'css-validation'
-  ]);
+  grunt.registerTask('deploy', ['sshexec:deploy']);
+  grunt.registerTask('html-validation', ['html-validation']);
+  grunt.registerTask('html-validation', ['css-validation']);
 
 };
