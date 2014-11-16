@@ -7,9 +7,9 @@ module.exports = {
   },
   templates: {
     files: [
-      '<%= config.development %>/app/assets/**/templates/*.ejs',
-      '<%= config.development %>/app/assets/**/templates/*.mustache',
-      '<%= config.development %>/app/assets/**/templates/*.jsx'
+      '<%= config.development %>/app/assets/javascripts_coffee/**/*.ejs',
+      '<%= config.development %>/app/assets/javascripts_coffee/**/*.mustache',
+      '<%= config.development %>/app/assets/javascripts_coffee/**/*.jsx'
     ],
     tasks: ['sync']
   },
@@ -21,10 +21,10 @@ module.exports = {
     files: [
       '{,**/}*.html',
       '{.tmp,<%= config.development %>}/app/assets/stylesheets/{,**/}*.sass',
-      '{.tmp,<%= config.development %>}/app/assets/javascripts/{,**/}*.js',
-      '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.ejs',
-      '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.mustache',
-      '{.tmp,<%= config.development %>}/app/assets/**/templates/{,**/}*.jsx'
+      '{.tmp,<%= config.development %>}/app/assets//javascripts_coffee/{,**/}*.coffee',
+      '{.tmp,<%= config.development %>}/app/assets/javascripts_coffee/**/{,**/}*.ejs',
+      '{.tmp,<%= config.development %>}/app/assets/javascripts_coffee/**/{,**/}*.mustache',
+      '{.tmp,<%= config.development %>}/app/assets/javascripts_coffee/**/{,**/}*.jsx'
     ],
     options: {
       livereload: true
