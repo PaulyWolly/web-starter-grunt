@@ -1,6 +1,6 @@
 [![Build Status](https://secure.travis-ci.org/Prinzhorn/skrollr.png)](http://travis-ci.org/Prinzhorn/skrollr)
 
-skrollr 0.6.27
+skrollr 0.6.29
 ==============
 
 Stand-alone **parallax scrolling** JavaScript library for **mobile (Android, iOS, etc.) and desktop** in about 12k minified.
@@ -150,6 +150,8 @@ Starting with skrollr 0.6.0 there's just one thing you need to do: Include an el
 
 Or to put it differently: On mobile the `skrollr-body` element is moved using CSS transforms. You can't have `position:fixed` or `background-attachment:fixed` inside elements which use CSS transforms as per CSS spec (http://meyerweb.com/eric/thoughts/2011/09/12/un-fixing-fixed-elements-with-css-transforms/). That's why those elements need to be **outside** of the `skrollr-body` element.
 
+The `skrollr-body` element might be configured within the [init-options](#skrollrinitoptions).
+
 AMD
 ---
 
@@ -192,9 +194,9 @@ The syntax is `data-[offset]-(viewport-anchor)-[element-anchor]`, where `offset`
 * `data-center-center` = `data-0-center-center`: When the element is at the center of the viewport.
 * `data-bottom-center` = `data-0-bottom-center`: When the element's center is at the bottom of the viewport, thus the upper half of the element is visible.
 
-By default the element is the element where the key frames are defined on (self), but can be any element on the page. You can optionally specify which element you want by using the `data-anchor-target` and any CSS selector. The first element on the page matching the selector will be used. `data-anchor-target` requires IE 8 or greater.
+By default the keyframes are triggered by the position of the element where the keyframes are described.  However there are times when the position of a second element should trigger the first element's keyframes.  The  `data-anchor-target` attribute can be used in these cases.  The `data-anchor-target` attribute accepts any CSS selector and the position of the first element on the page matching the selector will be used to trigger keyframes on the element where the attribute is defined. `data-anchor-target` requires IE 8 or greater.
 
-Examples: `data-anchor-target="#foo"` or `data-anchor-target=".bar:not(.bacon) ~ span > a[href]"`
+Examples: `<div `data-anchor-target="#foo"`>`  will have it's keyframes tiggered by  the position of the `#foo element`.  Any CSS selector can be used, i.e  `data-anchor-target=".bar:not(.bacon) ~ span > a[href]"`
 
 **Note**: If you need to support IE 7, then you may only use IDs as `anchor-target`s, i.e. `#foo`. The IE plugin maps `querySelector` to `getElementById`.
 
@@ -219,7 +221,7 @@ Check out the [skrollr-menu](https://github.com/Prinzhorn/skrollr-menu) plugin.
 Working with constants
 -----
 
-I was lying to you. The syntax for absolute mode is not `data-[offset]-[anchor]` and for relative mode it's not `data-[offset]-(viewport-anchor)-[element-anchor]`. In both cases, `offset` can be preceded by a constant which can be passed to the `ìnit` method. The name of the constant needs to be preceded with an underscore.
+I was lying to you. The syntax for absolute mode is not `data-[offset]-[anchor]` and for relative mode it's not `data-[offset]-(viewport-anchor)-[element-anchor]`. In both cases, `offset` can be preceded by a constant which can be passed to the `init` method. The name of the constant needs to be preceded with an underscore.
 
 Example:
 
@@ -389,6 +391,10 @@ function() {
 The amount of deceleration for momentum scrolling on mobile devices. This options tells skrollr how fast or slow you want the scrolling to stop after the user lifted his finger.
 
 Set it to `1` to disable momentum scrolling.
+
+### skrollrBody='skrollr-body'
+
+This option allows you to override the default id-selector used for supporting mobile browsers. It might come in handy when the element in question already has a assigned id or if you would like to define more then one skrollrBody depending on preceding JavaScript-logic.
 
 ### edgeStrategy='set'
 

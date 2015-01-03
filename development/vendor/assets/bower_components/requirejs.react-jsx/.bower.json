@@ -36,6 +36,5 @@
   },
   "_source": "git@github.com:podio/requirejs-react-jsx.git",
   "_target": "~0.12.0",
-  "_originalSource": "git@github.com:podio/requirejs-react-jsx.git",
-  "_direct": true
+  "_originalSource": "git@github.com:podio/requirejs-react-jsx.git"
 }

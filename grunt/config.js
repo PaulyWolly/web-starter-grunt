@@ -2,6 +2,6 @@
 
 module.exports =  {
   development: 'development',
-  production: 'production',
+  production: 'public',
   test: 'test'
 };

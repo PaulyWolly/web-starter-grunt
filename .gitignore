@@ -1,6 +1,7 @@
 secret.json
 validation-report.json
 validation-status.json
+bower_components
 
 # SASS
 .sass-cache

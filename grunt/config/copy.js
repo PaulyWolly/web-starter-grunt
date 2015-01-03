@@ -8,7 +8,7 @@ module.exports = {
       {
         expand: true,
         cwd: '<%= config.development %>/app/assets/javascripts_coffee',
-        src: ['**/*.mustache', '**/*.ejs', '**/*.jsx'],
+        src: ['**/*.ejs', '**/*.jsx'],
         dest: '<%= config.development %>/app/assets/javascripts/',
         filter: 'isFile'
       }

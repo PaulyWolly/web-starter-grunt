@@ -9,15 +9,16 @@ require.config
   waitSeconds: 15
 
   paths:
-    "path":                     "app/assets/javascripts/application"
+    "path":                     "app/assets/javascripts/"
+    "marionette.path":          "app/assets/javascripts/marionette"
+    "marionette.app":           "app/assets/javascripts/marionette/app"
+    "javascript.app":           "app/assets/javascripts/javascript/app"
     "jquery":                   "vendor/assets/bower_components/jquery/dist/jquery"
     "underscore":               "vendor/assets/bower_components/underscore/underscore"
     "backbone":                 "vendor/assets/bower_components/backbone/backbone"
     "backbone.eventbinder":     "vendor/assets/bower_components/backbone.eventbinder/lib/backbone.eventbinder"
     "backbone.wreqr":           "vendor/assets/bower_components/backbone.wreqr/lib/backbone.wreqr"
     "backbone.localstorage":    "vendor/assets/bower_components/backbone.localstorage/backbone.localStorage"
-    "backbone.relational":      "vendor/assets/bower_components/backbone.relational/backbone-relational"
-    "backbone.syphon":          "vendor/assets/bower_components/backbone.syphon/lib/backbone.syphon"
     "backbone.babysitter":      "vendor/assets/bower_components/backbone.babysitter/lib/backbone.babysitter"
     "marionette":               "vendor/assets/bower_components/backbone.marionette/lib/backbone.marionette"
     "rivets":                   "vendor/assets/bower_components/rivets/dist/rivets"
@@ -25,8 +26,6 @@ require.config
     "JSXTransformer":           "vendor/assets/bower_components/react/build/JSXTransformer",
     "jsx":                      "vendor/assets/bower_components/requirejs.react-jsx/jsx"
     "text":                     "vendor/assets/bower_components/requirejs.text/text"
-    "mustache":                 "vendor/assets/bower_components/mustache/mustache"
-    "stache":                   "vendor/assets/bower_components/requirejs.mustache/stache"
     "tpl":                      "vendor/assets/bower_components/requirejs.tpl/tpl"
     "domready":                 "vendor/assets/bower_components/requirejs.domready/domReady"
     "async":                    "vendor/assets/bower_components/requirejs.plugins/src/async"
@@ -44,12 +43,10 @@ require.config
     "jquery.owl.carousel":      "vendor/assets/bower_components/jquery.owl.carousel/dist/owl.carousel"
     "jquery.cookie":            "vendor/assets/bower_components/jquery.cookie/jquery.cookie"
     "bootstrap":                "vendor/assets/bower_components/bootstrap-sass/assets/javascripts/bootstrap"
-    "wow":                      "vendor/assets/bower_components/wow/dist/wow"
     "pace":                     "vendor/assets/bower_components/pace/pace"
     "moment":                   "vendor/assets/bower_components/moment/moment"
     "device":                   "vendor/assets/bower_components/device/lib/device"
     "platform":                 "vendor/assets/bower_components/platform/platform"
-    "rem":                      "vendor/assets/components/rem/rem"
     "TimelineMax":              "vendor/assets/bower_components/gsap/src/uncompressed/TimelineMax"
     "TweenMax":                 "vendor/assets/bower_components/gsap/src/uncompressed/TweenMax"
     "TweenLite":                "vendor/assets/bower_components/gsap/src/uncompressed/TweenLite"
@@ -70,7 +67,6 @@ require.config
     "marionette":               { deps: ["backbone"], exports: "Marionette" }
     "react":                    { "exports": "React" }
     "JSXTransformer":           { "exports": "JSXTransformer"}
-    "mustache":                 { exports: "Mustache" }
     "jquery.placeholder":       { deps: ["jquery"], exports: "$.fn.placeholder" }
     "jquery.scrolltop":         { deps: ["jquery"], exports: "$.fn.scrolltop" }
     "jquery.lazyload":          { deps: ["jquery", "jquery.scrolltop"] }
@@ -89,7 +85,6 @@ require.config
     "bootstrap/tab":            { deps: ["jquery"], exports: "$.fn.tab" }
     "bootstrap/tooltip":        { deps: ["jquery"], exports: "$.fn.tooltip" }
     "bootstrap/transition":     { deps: ["jquery"], exports: "$.fn.transition" }
-    "wow":                      { exports: "WOW" }
     "pace":                     { exports: "pace" }
     "moment":                   { exports: "moment" }
     "rem":                      { deps: ["jquery"] }
@@ -102,9 +97,6 @@ require.config
     "skrollr":                  { exports: "skrollr" }
     "hammer":                   { exports: "Hammer" }
 
-  stache:
-    extension: '.mustache'
-
   tpl:
     extension: '.ejs'
 
@@ -115,7 +107,4 @@ require.config
       stripTypes: false
     usePragma: false
 
-require [
-  "path/marionette_app"
-  "path/script"
-], (App) -> App.start()
+require ["path/main"]

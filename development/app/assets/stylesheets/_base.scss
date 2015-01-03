@@ -1,0 +1,14 @@
+// ==========================================================================
+// Base
+// ==========================================================================
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-size: inherit !important;
+  margin-bottom: 60px;
+}
