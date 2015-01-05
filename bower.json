@@ -53,6 +53,7 @@
     "gsap": "git@github.com:greensock/GreenSock-JS.git#~1.13.2",
     "skrollr": "git@github.com:Prinzhorn/skrollr.git#~0.6.27",
     "hammerjs": "git@github.com:hammerjs/hammer.js.git#~2.0.4",
-    "react": "git@github.com:facebook/react.git#~0.12.0"
+    "react": "git@github.com:facebook/react.git#~0.12.0",
+    "bourbon": "~3.2.3"
   }
 }
