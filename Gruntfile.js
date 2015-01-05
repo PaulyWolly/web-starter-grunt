@@ -12,6 +12,7 @@ module.exports = function(grunt) {
     coffee:            require('./grunt/config/coffee'),
     requirejs:         require('./grunt/config/requirejs'),
     sass:              require('./grunt/config/sass'),
+    libsass:           require('./grunt/config/libsass'),
     csscomb:           require('./grunt/config/csscomb'),
     autoprefixer:      require('./grunt/config/autoprefixer'),
     cssmin:            require('./grunt/config/cssmin'),
@@ -32,6 +33,7 @@ module.exports = function(grunt) {
     throttle:          'grunt-throttle',
     cssmin:            'grunt-contrib-cssmin',
     sass:              'grunt-contrib-sass',
+    libsass:           'grunt-libsass',
     autoprefixer:      'grunt-autoprefixer',
     csscomb:           'grunt-csscomb',
     pixrem:            'grunt-pixrem',
@@ -52,7 +54,8 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['connect:development', 'watch']);
 
   grunt.registerTask('development', [
-    'sass:development',
+    //'sass:development',
+    'libsass:development',
     'cssmin:development',
     'csscomb:development',
     'css_mqpacker:development',

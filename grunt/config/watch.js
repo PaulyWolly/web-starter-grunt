@@ -14,7 +14,12 @@ module.exports = {
   },
   css: {
     files: ['<%= config.development %>/app/assets/stylesheets/**/*.scss'],
-    tasks: ['sass:development', 'cssmin:development', 'autoprefixer:development']
+    tasks: [
+      //'sass:development',
+      'libsass:development',
+      'cssmin:development',
+      'autoprefixer:development'
+    ]
   },
   livereload: {
     files: [
